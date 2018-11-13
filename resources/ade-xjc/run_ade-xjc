@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+##############################################################################
+##
+##  UN*X start script for converting the NoiseADE
+##
+##############################################################################
+
+OUTPUT="src-gen"
+PACKAGE="org.sig3d.citygml._2.energy._1"
+BINDING="binding.xjb"
+SCHEMA="EnergyADE.xsd"
+PLUGINS="-Xnamespace-prefix"
+
+exec ../bin/ade-xjc $PLUGINS -clean -output $OUTPUT -package $PACKAGE -binding $BINDING $SCHEMA

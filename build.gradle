@@ -12,6 +12,10 @@ repositories {
     jcenter()
 }
 
+sourceSets {
+    main.java.srcDir 'src-gen/main/java'
+}
+
 dependencies {
     api 'org.citygml4j:citygml4j:2.8.1'
 }

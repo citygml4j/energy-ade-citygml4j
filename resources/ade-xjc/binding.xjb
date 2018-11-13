@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix">
+
+  <jaxb:bindings schemaLocation="EnergyADE.xsd" node="/xs:schema">
+    <jaxb:bindings generateIsSetMethod="true" underscoreBinding="asCharInWord">
+      <namespace:prefix name="energy"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="xs:element[@name='floorArea']">
+      <jaxb:factoryMethod name="FloorAreaProperty"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="xs:element[@name='weatherData']">
+      <jaxb:factoryMethod name="WeatherDataProperty"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="xs:element[@name='heightAboveGround']">
+      <jaxb:factoryMethod name="HeightAboveGroundProperty"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="xs:element[@name='thermalZone']">
+      <jaxb:factoryMethod name="ThermalZoneProperty"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="xs:element[@name='usageZone']">
+      <jaxb:factoryMethod name="UsageZoneProperty"/>
+    </jaxb:bindings>
+    <jaxb:bindings node="xs:complexType[@name='ThermalZoneType']">
+      <jaxb:bindings node=".//xs:element[@name='boundedBy']">
+        <jaxb:property name="thermalBoundary"/>
+      </jaxb:bindings>
+    </jaxb:bindings>
+  </jaxb:bindings>
+
+</jaxb:bindings>
