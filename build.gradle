@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+    id 'distribution'
+}
+
+group 'org.citygml4j.ade'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    api 'org.citygml4j:citygml4j:2.8.1'
+}
