@@ -13,3 +13,6 @@ bin/
 *.iml
 *.iws
 out/
+
+# samples
+energy-ade-samples/output/

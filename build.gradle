@@ -3,13 +3,15 @@ plugins {
     id 'distribution'
 }
 
-group 'org.citygml4j.ade'
-version '1.0.0-SNAPSHOT'
+allprojects {
+    group 'org.citygml4j.ade'
+    version '1.0.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+    sourceCompatibility = 1.8
 
-repositories {
-    jcenter()
+    repositories {
+        jcenter()
+    }
 }
 
 sourceSets {
@@ -18,4 +20,19 @@ sourceSets {
 
 dependencies {
     api 'org.citygml4j:citygml4j:2.8.1'
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                'Implementation-Version': project.version
+        )
+    }
+    into('META-INF') {
+        from 'LICENSE'
+    }
+}
+
+javadoc {
+    options.addStringOption('Xdoclint:none', '-quiet')
 }
