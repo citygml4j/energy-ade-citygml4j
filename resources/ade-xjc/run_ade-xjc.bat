@@ -1,7 +1,7 @@
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
-@rem  Windows start script for converting the NoiseADE
+@rem  Windows start script for converting the EnergyADE
 @rem
 @rem ##########################################################################
 
