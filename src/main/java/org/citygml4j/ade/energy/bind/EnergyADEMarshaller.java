@@ -167,6 +167,8 @@ import org.w3._1999.xlink.TypeType;
 import javax.xml.bind.JAXBElement;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -1059,14 +1061,11 @@ public class EnergyADEMarshaller implements ADEMarshaller {
         RegularTimeSeriesType dest = factory.createRegularTimeSeriesType();
         marshalAbstractTimeSeries(src, dest);
 
-        String unit = null;
-        if (src.isSetTimeInterval()) {
-            unit = src.getTimeInterval().getUnit();
+        if (src.isSetTimeInterval())
             dest.setTimeInterval(marshalTimeIntervalLength(src.getTimeInterval()));
-        }
 
         if (src.isSetTemporalExtent())
-            dest.setTemporalExtent(marshalTimePeriodProperty(src.getTemporalExtent(), unit));
+            dest.setTemporalExtent(marshalTimePeriodProperty(src.getTemporalExtent()));
 
         if (src.isSetValues())
             dest.setValues(helper.getGMLMarshaller().marshalMeasureList(src.getValues()));
@@ -1332,26 +1331,28 @@ public class EnergyADEMarshaller implements ADEMarshaller {
         return dest;
     }
 
-    private TimePeriodType marshalTimePeriod(TimePeriod src, String unit) {
+    private TimePeriodType marshalTimePeriod(TimePeriod src) {
         TimePeriodType dest = new TimePeriodType();
 
-        DateTimeFormatter formatter;
-        if ("year".equalsIgnoreCase(unit) || "day".equalsIgnoreCase(unit))
-            formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-        else if ("hour".equalsIgnoreCase(unit) || "minute".equalsIgnoreCase(unit) || "second".equalsIgnoreCase(unit))
-            formatter = DateTimeFormatter.ISO_LOCAL_TIME;
-        else
-            formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+        ZonedDateTime beginPosition = src.getBeginPosition();
+        ZonedDateTime endPosition = src.getEndPosition();
 
-        if (src.isSetBeginPosition()) {
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
+        if (beginPosition != null && endPosition != null) {
+            LocalDate epoch = LocalDate.of(1970, 1, 1);
+            if (epoch.isEqual(beginPosition.toLocalDate()) && epoch.isEqual(endPosition.toLocalDate()))
+                formatter = DateTimeFormatter.ISO_LOCAL_TIME;
+        }
+
+        if (beginPosition != null) {
             TimePositionType timePosition = new TimePositionType();
-            timePosition.getValue().add(src.getBeginPosition().format(formatter));
+            timePosition.getValue().add(beginPosition.format(formatter));
             dest.setBeginPosition(timePosition);
         }
 
-        if (src.isSetEndPosition()) {
+        if (endPosition != null) {
             TimePositionType timePosition = new TimePositionType();
-            timePosition.getValue().add(src.getEndPosition().format(formatter));
+            timePosition.getValue().add(endPosition.format(formatter));
             dest.setEndPosition(timePosition);
         }
 
@@ -1359,14 +1360,10 @@ public class EnergyADEMarshaller implements ADEMarshaller {
     }
 
     private TimePeriodPropertyType marshalTimePeriodProperty(TimePeriodProperty src) {
-        return marshalTimePeriodProperty(src, null);
-    }
-
-    private TimePeriodPropertyType marshalTimePeriodProperty(TimePeriodProperty src, String unit) {
         TimePeriodPropertyType dest = new TimePeriodPropertyType();
 
         if (src.isSetTimePeriod())
-            dest.setTimePeriod(marshalTimePeriod(src.getTimePeriod(), unit));
+            dest.setTimePeriod(marshalTimePeriod(src.getTimePeriod()));
 
         if (src.isSetRemoteSchema())
             dest.setRemoteSchema(src.getRemoteSchema());
