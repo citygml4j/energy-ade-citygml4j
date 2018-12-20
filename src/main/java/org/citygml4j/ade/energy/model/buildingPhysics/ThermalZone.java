@@ -1,14 +1,14 @@
 package org.citygml4j.ade.energy.model.buildingPhysics;
 
+import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
+import org.citygml4j.ade.energy.model.core.FloorAreaProperty;
+import org.citygml4j.ade.energy.model.core.VolumeTypeProperty;
 import org.citygml4j.builder.copy.CopyBuilder;
 import org.citygml4j.model.common.child.ChildList;
 import org.citygml4j.model.gml.basicTypes.Measure;
 import org.citygml4j.model.gml.feature.BoundingShape;
 import org.citygml4j.model.gml.geometry.primitives.SolidProperty;
 import org.citygml4j.util.bbox.BoundingBoxOptions;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.FloorAreaProperty;
-import org.citygml4j.ade.energy.model.core.VolumeTypeProperty;
 
 import java.util.List;
 

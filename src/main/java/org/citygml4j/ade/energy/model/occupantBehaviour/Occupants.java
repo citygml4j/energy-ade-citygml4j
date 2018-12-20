@@ -1,6 +1,7 @@
 package org.citygml4j.ade.energy.model.occupantBehaviour;
 
 import org.citygml4j.ade.energy.model.core.HeatExchangeTypeProperty;
+import org.citygml4j.ade.energy.model.supportingClasses.AbstractScheduleProperty;
 import org.citygml4j.builder.copy.CopyBuilder;
 import org.citygml4j.model.citygml.ade.binding.ADEModelObject;
 import org.citygml4j.model.common.visitor.FeatureFunctor;
@@ -8,7 +9,6 @@ import org.citygml4j.model.common.visitor.FeatureVisitor;
 import org.citygml4j.model.common.visitor.GMLFunctor;
 import org.citygml4j.model.common.visitor.GMLVisitor;
 import org.citygml4j.model.gml.feature.AbstractFeature;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractScheduleProperty;
 
 public class Occupants extends AbstractFeature implements ADEModelObject {
     private HeatExchangeTypeProperty heatDissipation;

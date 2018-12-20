@@ -7,8 +7,13 @@ import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpeningProperty;
 import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
 import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZoneProperty;
 import org.citygml4j.ade.energy.model.core.AbstractConstruction;
+import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
+import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
 import org.citygml4j.ade.energy.model.core.AbstractUsageZoneProperty;
+import org.citygml4j.ade.energy.model.core.DemandsProperty;
+import org.citygml4j.ade.energy.model.core.EnergyDemand;
 import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
+import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
 import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
 import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
 import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
@@ -31,11 +36,6 @@ import org.citygml4j.model.citygml.core.AbstractCityObject;
 import org.citygml4j.model.gml.feature.AbstractFeature;
 import org.citygml4j.model.gml.feature.FeatureProperty;
 import org.citygml4j.util.walker.FeatureWalker;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
-import org.citygml4j.ade.energy.model.core.DemandsProperty;
-import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
 
 public class EnergyADEFeatureWalker implements ADEWalker<FeatureWalker> {
     private FeatureWalker walker;

@@ -1,11 +1,11 @@
 package org.citygml4j.ade.energy.model.occupantBehaviour;
 
-import org.citygml4j.builder.copy.CopyBuilder;
-import org.citygml4j.model.common.child.ChildList;
-import org.citygml4j.model.gml.basicTypes.Code;
 import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
 import org.citygml4j.ade.energy.model.core.FloorAreaProperty;
 import org.citygml4j.ade.energy.model.supportingClasses.AbstractScheduleProperty;
+import org.citygml4j.builder.copy.CopyBuilder;
+import org.citygml4j.model.common.child.ChildList;
+import org.citygml4j.model.gml.basicTypes.Code;
 
 import java.util.List;
 

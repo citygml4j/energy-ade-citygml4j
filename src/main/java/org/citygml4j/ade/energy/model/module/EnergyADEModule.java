@@ -1,13 +1,10 @@
 package org.citygml4j.ade.energy.model.module;
 
-import org.citygml4j.ade.energy.model.core.AbstractConstruction;
-import org.citygml4j.model.gml.feature.AbstractFeature;
-import org.citygml4j.model.module.ade.ADEModule;
-import org.citygml4j.model.module.citygml.CityGMLVersion;
 import org.citygml4j.ade.energy.EnergyADEContext;
 import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundary;
 import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpening;
 import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
+import org.citygml4j.ade.energy.model.core.AbstractConstruction;
 import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
 import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
 import org.citygml4j.ade.energy.model.core.EnergyDemand;
@@ -24,6 +21,9 @@ import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
 import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
 import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
 import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
+import org.citygml4j.model.gml.feature.AbstractFeature;
+import org.citygml4j.model.module.ade.ADEModule;
+import org.citygml4j.model.module.citygml.CityGMLVersion;
 
 import javax.xml.namespace.QName;
 import java.net.URL;

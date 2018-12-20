@@ -1,6 +1,12 @@
 package org.citygml4j.ade.energy;
 
+import org.citygml4j.ade.energy.bind.EnergyADEMarshaller;
+import org.citygml4j.ade.energy.bind.EnergyADEUnmarshaller;
 import org.citygml4j.ade.energy.model.module.EnergyADEModule;
+import org.citygml4j.ade.energy.walker.EnergyADEFeatureFunctionWalker;
+import org.citygml4j.ade.energy.walker.EnergyADEFeatureWalker;
+import org.citygml4j.ade.energy.walker.EnergyADEGMLFunctionWalker;
+import org.citygml4j.ade.energy.walker.EnergyADEGMLWalker;
 import org.citygml4j.model.citygml.ade.binding.ADEContext;
 import org.citygml4j.model.citygml.ade.binding.ADEMarshaller;
 import org.citygml4j.model.citygml.ade.binding.ADEUnmarshaller;
@@ -10,12 +16,6 @@ import org.citygml4j.util.walker.FeatureFunctionWalker;
 import org.citygml4j.util.walker.FeatureWalker;
 import org.citygml4j.util.walker.GMLFunctionWalker;
 import org.citygml4j.util.walker.GMLWalker;
-import org.citygml4j.ade.energy.bind.EnergyADEMarshaller;
-import org.citygml4j.ade.energy.bind.EnergyADEUnmarshaller;
-import org.citygml4j.ade.energy.walker.EnergyADEFeatureFunctionWalker;
-import org.citygml4j.ade.energy.walker.EnergyADEFeatureWalker;
-import org.citygml4j.ade.energy.walker.EnergyADEGMLFunctionWalker;
-import org.citygml4j.ade.energy.walker.EnergyADEGMLWalker;
 
 import java.util.Arrays;
 import java.util.Collections;
