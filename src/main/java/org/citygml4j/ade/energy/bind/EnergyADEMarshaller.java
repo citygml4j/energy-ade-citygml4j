@@ -639,6 +639,7 @@ public class EnergyADEMarshaller implements ADEMarshaller {
 
     private EnergyDemandType marshalEnergyDemand(EnergyDemand src) {
         EnergyDemandType dest = factory.createEnergyDemandType();
+        helper.getGMLMarshaller().marshalAbstractFeature(src, dest);
 
         if (src.isSetEnergyAmount())
             dest.setEnergyAmount(marshalAbstractTimeSeriesProperty(src.getEnergyAmount()));
