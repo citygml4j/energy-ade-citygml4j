@@ -23,8 +23,6 @@ import java.util.List;
 
 public class EnergyADEContext implements ADEContext {
     private final List<ADEModule> modules = Collections.singletonList(EnergyADEModule.v1_0);
-    private final ADEMarshaller marshaller = new EnergyADEMarshaller();
-    private final ADEUnmarshaller unmarshaller = new EnergyADEUnmarshaller();
 
     @Override
     public List<ADEModule> getADEModules() {
@@ -41,18 +39,13 @@ public class EnergyADEContext implements ADEContext {
     }
 
     @Override
-    public List<String> getJAXBPackageNames() {
-        return Collections.singletonList("org.sig3d.citygml._2.energy._1");
+    public ADEMarshaller createADEMarshaller() {
+        return new EnergyADEMarshaller();
     }
 
     @Override
-    public ADEMarshaller getADEMarshaller() {
-        return marshaller;
-    }
-
-    @Override
-    public ADEUnmarshaller getADEUnmarshaller() {
-        return unmarshaller;
+    public ADEUnmarshaller createADEUnmarshaller() {
+        return new EnergyADEUnmarshaller();
     }
 
     @Override

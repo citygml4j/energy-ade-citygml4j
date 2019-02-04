@@ -4,12 +4,14 @@ plugins {
 
 apply from: 'samples.gradle'
 
+sourceCompatibility = 1.8
+
 jar.enabled false
 javadoc.enabled false
 
 dependencies {
     implementation rootProject
-    implementation 'org.citygml4j:citygml4j:2.8.1'
+    implementation 'org.citygml4j:citygml4j:2.9.0'
 }
 
 clean.dependsOn(cleanOutput)

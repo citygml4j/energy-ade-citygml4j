@@ -27,8 +27,10 @@ import org.citygml4j.model.module.citygml.CityGMLVersion;
 
 import javax.xml.namespace.QName;
 import java.net.URL;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 
 public class EnergyADEModule extends ADEModule {
@@ -82,6 +84,11 @@ public class EnergyADEModule extends ADEModule {
     @Override
     public URL getSchemaResource() {
         return EnergyADEContext.class.getResource("/org/citygml4j/ade/energy/schema/EnergyADE.xsd");
+    }
+
+    @Override
+    public List<String> getJAXBPackageNames() {
+        return Collections.singletonList("org.sig3d.citygml._2.energy._1");
     }
 
     @Override

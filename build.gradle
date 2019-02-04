@@ -3,11 +3,11 @@ plugins {
     id 'distribution'
 }
 
+sourceCompatibility = 1.8
+
 allprojects {
     group 'org.citygml4j.ade'
     version '1.0.0-SNAPSHOT'
-
-    sourceCompatibility = 1.8
 
     repositories {
         jcenter()
@@ -19,7 +19,7 @@ sourceSets {
 }
 
 dependencies {
-    api 'org.citygml4j:citygml4j:2.8.1'
+    api 'org.citygml4j:citygml4j:2.9.0'
 }
 
 jar {
