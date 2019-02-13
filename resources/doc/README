@@ -1,0 +1,105 @@
+@name@ - EnergyADE module for citygml4j
+
+Version @version@ (@date@)
+
+  This library is free software and is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+
+0. Index
+--------
+
+1. License
+2. Copyright
+3. About
+4. System requirements
+5. How to use it
+6. Developers
+7. Contact
+8. Websites
+
+
+1. License
+----------
+
+@name@ is licensed under the Apache License, Version 2.0
+(the "License"); you may not use this library except in compliance with
+the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+
+2. Copyright
+------------
+
+(C) 2017-@copyright@,
+Claus Nagel <claus.nagel@gmail.com>
+
+
+3. About
+--------
+
+@name@ is a citygml4j module for the CityGML 2.0 Energy
+Application Domain Extension (ADE). It currently implements the "KIT Profile"
+of the EnergyADE.
+
+The module is implemented against the ADEContext extension of citygml4j.
+In contrast to the generic ADE support of citygml4j, which maps ADE content 
+onto a Java DOM representation, the ADEContext approach allows for extending 
+the citygml4j object model with new ADE classes. JAXB is used for parsing and 
+writing ADE-enriched CityGML datasets. The required JAXB classes mapping the 
+ADE XML Schema can easily be generated with the ade-xjc compiler shipped with 
+citygml4j.
+
+@name@ is part of the citygml4j project.
+
+
+4. System requirements
+----------------------
+
+* Java JRE or JDK >= @javaCompatibility@
+* citygml4j v@citygml4jVersion@ to use the module
+
+
+5. How to use it
+----------------
+
+Simply build a JAR file of the @name@ using the Gradle build
+script.
+
+In order to develop a EnergyADE application, put the @name@ library
+together with citygml4j on your classpath. In your code, register the
+module with the citygml4j library through the CityGMLContext class. This
+makes the ADE module known to citygml4j. Once registered, the module will be 
+automatically used in parsing, processing and writing ADE-enriched datasets. 
+
+Check out the sample programs provided in the "samples" folder.
+
+   
+6. Developers
+-------------
+
+Claus Nagel <claus.nagel@gmail.com>
+
+
+7. Contact
+----------
+
+claus.nagel@gmail.com
+
+
+8. Websites
+-----------
+
+Official @name@ website:
+https://github.com/citygml4j/
+
+KIT Profile of the EnergyADE:
+http://www.citygmlwiki.org/index.php?title=CityGML_Energy_ADE
+
+Related websites:
+http://www.citygml.org/
+http://www.citygmlwiki.org/
+http://www.opengeospatial.org/standards/citygml

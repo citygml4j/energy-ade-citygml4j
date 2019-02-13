@@ -47,6 +47,16 @@ javadoc {
 }
 
 distributions.main.contents {
+    from('resources/doc/README') {
+        filter(ReplaceTokens, tokens: [
+                name: project.name,
+                version: project.version,
+                date: date.format('yyyy-MM-dd'),
+                copyright: date.format('yyyy'),
+                javaCompatibility: sourceCompatibility.toString(),
+                citygml4jVersion: citygml4jVersion
+        ])
+    }
     into('lib') {
         from jar
         from configurations.compileClasspath
