@@ -1,6 +1,10 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 plugins {
     id 'java-library'
     id 'distribution'
+    id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.8.4'
 }
 
 sourceCompatibility = 1.8
@@ -8,6 +12,11 @@ sourceCompatibility = 1.8
 allprojects {
     group 'org.citygml4j.ade'
     version '1.0.0'
+
+    ext {
+        citygml4jVersion = '2.9.1'
+        date = new Date()
+    }
 
     repositories {
         jcenter()
@@ -19,7 +28,7 @@ sourceSets {
 }
 
 dependencies {
-    api 'org.citygml4j:citygml4j:2.9.1'
+    api "org.citygml4j:citygml4j:$citygml4jVersion"
 }
 
 jar {
@@ -35,4 +44,20 @@ jar {
 
 javadoc {
     options.addStringOption('Xdoclint:none', '-quiet')
+}
+
+distributions.main.contents {
+    into('lib') {
+        from jar
+        from configurations.compileClasspath
+    }
+    into('javadoc') {
+        from javadoc
+    }
+    into('license') {
+        from 'LICENSE'
+    }
+    into('samples') {
+        from tasks.getByPath(':energy-ade-samples:copySamples').outputs
+    }
 }
