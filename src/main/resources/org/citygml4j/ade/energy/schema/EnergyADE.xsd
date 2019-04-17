@@ -13,11 +13,17 @@
   <element name="buildingType" type="gml:CodeType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
       <documentation>Classification of building according with their usage and form (e.g. single-family house, multi-family house, office building, industrial building).</documentation>
+      <appinfo>
+        <taggedValue tag="maxOccurs">1</taggedValue>
+      </appinfo>    
     </annotation>
   </element>
   <element name="constructionWeight" type="energy:ConstructionWeightValue" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
       <documentation>Classification of building according with their construction structure.</documentation>
+      <appinfo>
+        <taggedValue tag="maxOccurs">1</taggedValue>
+      </appinfo>
     </annotation>
   </element>
   <element name="volume" type="energy:VolumeTypePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
@@ -28,6 +34,9 @@
   <element name="referencePoint" type="gml:PointPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
     <annotation>
       <documentation>Geographical location of the building.</documentation>
+      <appinfo>
+        <taggedValue tag="maxOccurs">1</taggedValue>
+      </appinfo>    
     </annotation>
   </element>
   <element name="thermalZone" type="energy:AbstractThermalZonePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
@@ -35,6 +44,9 @@
       <appinfo>
         <gml:targetElement>energy:AbstractThermalZone</gml:targetElement>
       </appinfo>
+      <appinfo>
+        <taggedValue tag="relationType">composition</taggedValue>
+      </appinfo>      
     </annotation>
   </element>
   <element name="usageZone" type="energy:AbstractUsageZonePropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
@@ -42,6 +54,9 @@
       <appinfo>
         <gml:targetElement>energy:AbstractUsageZone</gml:targetElement>
       </appinfo>
+      <appinfo>
+        <taggedValue tag="relationType">composition</taggedValue>
+      </appinfo>      
     </annotation>
   </element>
   <element name="floorArea" type="energy:FloorAreaPropertyType" substitutionGroup="bldg:_GenericApplicationPropertyOfAbstractBuilding">
@@ -318,7 +333,13 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
     <complexContent>
       <extension base="gml:AbstractFeatureType">
         <sequence>
-          <element name="energyAmount" type="energy:AbstractTimeSeriesPropertyType" />
+          <element name="energyAmount" type="energy:AbstractTimeSeriesPropertyType">
+			<annotation>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>
+			</annotation>			  
+		  </element>          
           <element name="endUse" type="energy:EndUseTypeValue" />
           <element name="maximumLoad" minOccurs="0" type="gml:MeasureType" />
           <element name="energyCarrierType" minOccurs="0" type="gml:CodeType" />
@@ -503,6 +524,9 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
               <appinfo>
                 <gml:targetElement>energy:AbstractTimeSeries</gml:targetElement>
               </appinfo>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>              
             </annotation>
           </element>
           <element name="position" minOccurs="0" type="gml:PointPropertyType" />
@@ -622,6 +646,9 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
               <appinfo>
                 <gml:targetElement>energy:AbstractConstruction</gml:targetElement>
               </appinfo>
+		      <appinfo>
+		        <taggedValue tag="relationType">aggregation</taggedValue>
+		      </appinfo>               
             </annotation>
           </element>
           <element name="contains" minOccurs="0" maxOccurs="unbounded" type="energy:ThermalOpeningPropertyType">
@@ -629,6 +656,9 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
               <appinfo>
                 <gml:targetElement>energy:ThermalOpening</gml:targetElement>
               </appinfo>
+              <appinfo>
+                <taggedValue tag="relationType">composition</taggedValue>
+              </appinfo>              
             </annotation>
           </element>
           <element name="delimits" maxOccurs="2" type="energy:ThermalZonePropertyType">
@@ -716,6 +746,9 @@ NOTE: for buildings, it is generally top of the roof.</documentation>
               <appinfo>
                 <gml:targetElement>energy:AbstractConstruction</gml:targetElement>
               </appinfo>
+		      <appinfo>
+		        <taggedValue tag="relationType">aggregation</taggedValue>
+		      </appinfo>                 
             </annotation>
           </element>
           <element name="surfaceGeometry" minOccurs="0" type="gml:MultiSurfacePropertyType" />
@@ -753,6 +786,9 @@ It is a semantic object, which may be or not related to a geometric entity. </do
                 <gml:targetElement>energy:ThermalBoundary</gml:targetElement>
                 <gml:reversePropertyName>energy:delimits</gml:reversePropertyName>
               </appinfo>
+              <appinfo>
+                <taggedValue tag="relationType">composition</taggedValue>
+              </appinfo>              
             </annotation>
           </element>
         </sequence>
@@ -803,6 +839,9 @@ It is a semantic object, which may be or not related to a geometric entity. </do
               <appinfo>
                 <gml:targetElement>energy:Layer</gml:targetElement>
               </appinfo>
+		      <appinfo>
+		        <taggedValue tag="relationType">composition</taggedValue>
+		      </appinfo>                  
             </annotation>
           </element>
         </sequence>
@@ -854,6 +893,9 @@ It is a semantic object, which may be or not related to a geometric entity. </do
               <appinfo>
                 <gml:targetElement>energy:LayerComponent</gml:targetElement>
               </appinfo>
+		      <appinfo>
+		        <taggedValue tag="relationType">composition</taggedValue>
+		      </appinfo>               
             </annotation>
           </element>
         </sequence>
@@ -884,6 +926,9 @@ It is a semantic object, which may be or not related to a geometric entity. </do
               <appinfo>
                 <gml:targetElement>energy:AbstractMaterial</gml:targetElement>
               </appinfo>
+		      <appinfo>
+		        <taggedValue tag="relationType">composition</taggedValue>
+		      </appinfo>                             
             </annotation>
           </element>
         </sequence>
@@ -1030,7 +1075,13 @@ It is a semantic object, which may be or not related to a geometric entity. </do
     <complexContent>
       <extension base="core:AbstractCityObjectType">
         <sequence>
-          <element name="operationSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType" />
+          <element name="operationSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType">
+			<annotation>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>
+			</annotation>			  
+		  </element>          
           <element name="heatDissipation" minOccurs="0" type="energy:HeatExchangeTypePropertyType">
             <annotation>
               <appinfo>
@@ -1081,7 +1132,13 @@ It is a semantic object, which may be or not related to a geometric entity. </do
         <sequence>
           <element name="heatDissipation" minOccurs="0" type="energy:HeatExchangeTypePropertyType" />
           <element name="numberOfOccupants" minOccurs="0" type="int" />
-          <element name="occupancyRate" minOccurs="0" type="energy:AbstractSchedulePropertyType" />
+          <element name="occupancyRate" minOccurs="0" type="energy:AbstractSchedulePropertyType">
+			<annotation>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>
+			</annotation>			  
+		  </element>          
         </sequence>
       </extension>
     </complexContent>
@@ -1103,16 +1160,37 @@ It is a semantic object, which may be or not related to a geometric entity. </do
     <complexContent>
       <extension base="energy:AbstractUsageZoneType">
         <sequence>
-          <element name="coolingSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType" />
-          <element name="heatingSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType" />
+          <element name="coolingSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType">
+			<annotation>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>
+			</annotation>		  
+		  </element>          
+          <element name="heatingSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType">
+			<annotation>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>
+			</annotation>		  
+		  </element>	          
           <element name="usageZoneType" type="gml:CodeType" />
-          <element name="ventilationSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType" />
+          <element name="ventilationSchedule" minOccurs="0" type="energy:AbstractSchedulePropertyType">
+			<annotation>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>
+			</annotation>		  
+		  </element>		            
           <element name="floorArea" minOccurs="0" maxOccurs="unbounded" type="energy:FloorAreaPropertyType" />
           <element name="occupiedBy" minOccurs="0" maxOccurs="unbounded" type="energy:OccupantsPropertyType">
             <annotation>
               <appinfo>
                 <gml:targetElement>energy:Occupants</gml:targetElement>
               </appinfo>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>              
             </annotation>
           </element>
           <element name="equippedWith" minOccurs="0" maxOccurs="unbounded" type="energy:FacilitiesPropertyType">
@@ -1120,6 +1198,9 @@ It is a semantic object, which may be or not related to a geometric entity. </do
               <appinfo>
                 <gml:targetElement>energy:Facilities</gml:targetElement>
               </appinfo>
+			  <appinfo>
+				<taggedValue tag="relationType">composition</taggedValue>
+			  </appinfo>              
             </annotation>
           </element>
         </sequence>
@@ -1245,7 +1326,13 @@ It is a semantic object, which may be or not related to a geometric entity. </do
     </annotation>
     <sequence>
       <element name="dayType" type="energy:DayTypeValue" />
-      <element name="schedule" type="energy:AbstractTimeSeriesPropertyType" />
+      <element name="schedule" type="energy:AbstractTimeSeriesPropertyType">
+		<annotation>	  
+		  <appinfo>
+			<taggedValue tag="relationType">composition</taggedValue>
+		  </appinfo>	
+		</annotation>			  
+	  </element>      
     </sequence>
   </complexType>
   <complexType name="DailySchedulePropertyType">
@@ -1489,7 +1576,13 @@ It is a semantic object, which may be or not related to a geometric entity. </do
   <!--=========================================================================================-->
   <!--WeatherStation-->
   <!--=========================================================================================-->
-  <element name="WeatherStation" type="energy:WeatherStationType" substitutionGroup="core:_CityObject" />
+  <element name="WeatherStation" type="energy:WeatherStationType" substitutionGroup="core:_CityObject">
+    <annotation>
+      <appinfo>
+        <taggedValue tag="topLevel">true</taggedValue>
+      </appinfo>
+    </annotation>
+  </element>  
   <complexType name="WeatherStationType">
     <annotation>
       <documentation>Aggregation of different time series (WeatherData) of meteorological or radiation parameters, e,g, measured by a specific weather station.</documentation>
