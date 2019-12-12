@@ -1,10 +1,10 @@
 /*
- * module-noise-ade - Noise ADE module for citygml4j
- * https://github.com/citygml4j/module-noise-ade
+ * energy-ade-citygml4j - Energy ADE module for citygml4j
+ * https://github.com/citygml4j/energy-ade-citygml4j
  *
- * module-noise-ade is part of the citygml4j project
+ * energy-ade-citygml4j is part of the citygml4j project
  *
- * Copyright 2013-2018 Claus Nagel <claus.nagel@gmail.com>
+ * Copyright 2013-2019 Claus Nagel <claus.nagel@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
