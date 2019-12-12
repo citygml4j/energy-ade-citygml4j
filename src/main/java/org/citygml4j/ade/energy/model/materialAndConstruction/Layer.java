@@ -44,7 +44,7 @@ public class Layer extends AbstractFeature implements ADEModelObject {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         Layer copy = (target == null) ? new Layer() : (Layer)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetLayerComponent()) {
             for (LayerComponentProperty part : layerComponent) {

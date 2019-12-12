@@ -72,7 +72,7 @@ public class Construction extends AbstractConstruction {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         Construction copy = (target == null) ? new Construction() : (Construction)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetOpticalProperties())
             copy.setOpticalProperties((OpticalPropertiesProperty)copyBuilder.copy(opticalProperties));

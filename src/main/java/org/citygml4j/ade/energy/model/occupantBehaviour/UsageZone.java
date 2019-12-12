@@ -152,7 +152,7 @@ public class UsageZone extends AbstractUsageZone {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         UsageZone copy = (target == null) ? new UsageZone() : (UsageZone)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetCoolingSchedule())
             copy.setCoolingSchedule((AbstractScheduleProperty)copyBuilder.copy(coolingSchedule));

@@ -42,7 +42,7 @@ public class Gas extends AbstractMaterial {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         Gas copy = (target == null) ? new Gas() : (Gas)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetIsVentilated())
             copy.setIsVentilated(copyBuilder.copy(isVentilated));

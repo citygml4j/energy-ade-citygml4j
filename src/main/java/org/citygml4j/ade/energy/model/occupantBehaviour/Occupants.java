@@ -65,7 +65,7 @@ public class Occupants extends AbstractFeature implements ADEModelObject {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         Occupants copy = (target == null) ? new Occupants() : (Occupants)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetHeatDissipation())
             copy.setHeatDissipation((HeatExchangeTypeProperty)copyBuilder.copy(heatDissipation));

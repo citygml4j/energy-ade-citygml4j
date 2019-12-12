@@ -77,7 +77,7 @@ public class SolidMaterial extends AbstractMaterial {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         SolidMaterial copy = (target == null) ? new SolidMaterial() : (SolidMaterial)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetConductivity())
             copy.setConductivity((Measure)copyBuilder.copy(conductivity));

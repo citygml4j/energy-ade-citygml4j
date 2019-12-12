@@ -172,7 +172,7 @@ public class ThermalZone extends AbstractThermalZone {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         ThermalZone copy = (target == null) ? new ThermalZone() : (ThermalZone)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetFloorArea()) {
             for (FloorAreaProperty part : floorArea) {

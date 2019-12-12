@@ -181,7 +181,7 @@ public class ThermalBoundary extends AbstractCityObject implements ADEModelObjec
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         ThermalBoundary copy = (target == null) ? new ThermalBoundary() : (ThermalBoundary)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetArea())
             copy.setArea((Area)copyBuilder.copy(area));

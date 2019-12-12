@@ -109,7 +109,7 @@ public class EnergyDemand extends AbstractFeature implements ADEModelObject {
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         EnergyDemand copy = (target == null) ? new EnergyDemand() : (EnergyDemand)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetEndUse())
             copy.setEndUse(endUse);

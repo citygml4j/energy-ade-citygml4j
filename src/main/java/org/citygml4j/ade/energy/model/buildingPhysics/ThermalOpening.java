@@ -86,7 +86,7 @@ public class ThermalOpening extends AbstractCityObject implements ADEModelObject
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
         ThermalOpening copy = (target == null) ? new ThermalOpening() : (ThermalOpening)target;
-        super.copyTo(target, copyBuilder);
+        super.copyTo(copy, copyBuilder);
 
         if (isSetArea())
             copy.setArea((Area)copyBuilder.copy(area));
