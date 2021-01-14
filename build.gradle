@@ -97,6 +97,9 @@ distributions.main.contents {
     into('license') {
         from 'LICENSE'
     }
+    into('specification') {
+        from "$rootDir/resources/specification"
+    }
     into('samples') {
         from tasks.getByPath(':energy-ade-samples:copySamples').outputs
     }
