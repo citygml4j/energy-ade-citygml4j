@@ -4,10 +4,14 @@ plugins {
     id 'java-library'
     id 'distribution'
     id 'maven-publish'
-    id 'com.jfrog.bintray' version '1.8.4'
+    id 'com.jfrog.bintray' version '1.8.5'
 }
 
-sourceCompatibility = 1.8
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    withJavadocJar()
+    withSourcesJar()
+}
 
 allprojects {
     group 'org.citygml4j.ade'
@@ -15,7 +19,7 @@ allprojects {
     description 'CityGML EnergyADE module for citygml4j'
 
     ext {
-        citygml4jVersion = '2.9.2'
+        citygml4jVersion = '2.11.2'
         date = new Date()
     }
 
@@ -44,7 +48,32 @@ jar {
 }
 
 javadoc {
-    options.addStringOption('Xdoclint:none', '-quiet')
+    options {
+        overview "$buildDir/tmp/javadoc/overview.html"
+        header "$project.name $project.version"
+        bottom """
+            <a target="_blank" href="https://github.com/citygml4j/energy-ade-citygml4j/issues">Report a bug or suggest an enhancement</a><br />
+            ${project.name} is open source and licensed under the <a target="_blank" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a><br />
+            Official website and more information at: <a target="_blank" href="https://github.com/citygml4j">https://github.com/citygml4j</a><br />
+            """.replaceAll("[\r|\n]+", "")
+        addStringOption('doctitle', project.name + ' - ' + project.description)
+        addStringOption('Xdoclint:none', '-quiet')
+    }
+
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
+    }
+
+    doFirst {
+        copy {
+            from 'resources/javadoc/overview.html'
+            into "$buildDir/tmp/javadoc"
+            filter(ReplaceTokens, tokens: [
+                    name: project.name,
+                    version: project.version
+            ])
+        }
+    }
 }
 
 distributions.main.contents {
@@ -73,22 +102,10 @@ distributions.main.contents {
     }
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
-    archiveClassifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    archiveClassifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            artifact sourcesJar
-            artifact javadocJar
             pom {
                 name = project.name
                 description = project.description
