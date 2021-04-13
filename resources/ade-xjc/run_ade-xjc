@@ -12,4 +12,4 @@ BINDING="binding.xjb"
 SCHEMA="EnergyADE.xsd"
 PLUGINS="-Xnamespace-prefix"
 
-exec ../bin/ade-xjc $PLUGINS -clean -output $OUTPUT -package $PACKAGE -binding $BINDING $SCHEMA
+exec ../ade-xjc $PLUGINS -clean -output $OUTPUT -package $PACKAGE -binding $BINDING $SCHEMA
