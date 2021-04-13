@@ -34,10 +34,10 @@ datasets into the model classes defined in the package `org.citygml4j.ade.energy
 citygml4j model classes. Simply use these classes to build your Energy ADE specific application logic.
 
 ## Latest release
-The latest stable release of energy-ade-citygml4j is 1.0.1.
+The latest stable release of energy-ade-citygml4j is 1.0.2.
 
-Download the energy-ade-citygml4j 1.0.1 release binaries
-[here](https://github.com/citygml4j/energy-ade-citygml4j/releases/download/v1.0.1/energy-ade-citygml4j-1.0.1.zip).
+Download the energy-ade-citygml4j 1.0.2 release binaries
+[here](https://github.com/citygml4j/energy-ade-citygml4j/releases/download/v1.0.2/energy-ade-citygml4j-1.0.2.zip).
 Previous releases are available from the [releases section](https://github.com/citygml4j/energy-ade-citygml4j/releases).
 
 ## Maven artifact
@@ -50,7 +50,7 @@ code to your `pom.xml`. You may need to adapt the energy-ade-citygml4j version n
 <dependency>
   <groupId>org.citygml4j</groupId>
   <artifactId>energy-ade-citygml4j</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
 </dependency>
 ```
 
@@ -62,7 +62,7 @@ repositories {
 }
 
 dependencies {
-  implementation 'org.citygml4j:energy-ade-citygml4j:1.0.1'
+  implementation 'org.citygml4j:energy-ade-citygml4j:1.0.2'
 }
 ```
 
