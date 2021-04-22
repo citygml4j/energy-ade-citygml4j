@@ -1488,6 +1488,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
 
     private WeatherData unmarshalWeatherData(WeatherDataType src) throws MissingADESchemaException {
         WeatherData dest = new WeatherData();
+        helper.getGMLUnmarshaller().unmarshalAbstractGML(src, dest);
 
         if (src.isSetWeatherDataType())
             dest.setWeatherDataType(WeatherDataTypeValue.fromValue(src.getWeatherDataType().value()));
@@ -1536,6 +1537,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
 
     private WeatherStation unmarshalWeatherStation(WeatherStationType src) throws MissingADESchemaException {
         WeatherStation dest = new WeatherStation();
+        helper.getCore200Unmarshaller().unmarshalAbstractCityObject(src, dest);
 
         if (src.isSetStationName())
             dest.setStationName(src.getStationName());

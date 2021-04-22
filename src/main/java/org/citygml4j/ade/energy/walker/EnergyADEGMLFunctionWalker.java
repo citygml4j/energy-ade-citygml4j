@@ -36,6 +36,7 @@ import org.citygml4j.ade.energy.model.core.EnergyDemand;
 import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
 import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
 import org.citygml4j.ade.energy.model.core.WeatherData;
+import org.citygml4j.ade.energy.model.core.WeatherDataProperty;
 import org.citygml4j.ade.energy.model.core.WeatherDataPropertyElement;
 import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
 import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
@@ -396,6 +397,14 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
             object = walker.apply(weatherStation.getPosition());
             if (object != null)
                 return object;
+        }
+
+        if (weatherStation.isSetParameter()) {
+            for (WeatherDataProperty property : weatherStation.getParameter()) {
+                object = walker.apply((AssociationByRepOrRef<WeatherData>) property);
+                if (object != null)
+                    return object;
+            }
         }
         
         return null;
