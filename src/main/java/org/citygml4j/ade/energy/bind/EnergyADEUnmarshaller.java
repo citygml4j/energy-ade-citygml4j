@@ -818,6 +818,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
 
     private LayerComponent unmarshalLayerComponent(LayerComponentType src) throws MissingADESchemaException {
         LayerComponent dest = new LayerComponent();
+        helper.getGMLUnmarshaller().unmarshalAbstractFeature(src, dest);
 
         if (src.isSetAreaFraction())
             dest.setAreaFraction(helper.getGMLUnmarshaller().unmarshalScale(src.getAreaFraction()));
