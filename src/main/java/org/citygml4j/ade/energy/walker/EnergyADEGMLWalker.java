@@ -57,6 +57,10 @@ import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
 import org.citygml4j.ade.energy.model.supportingClasses.AbstractSchedule;
 import org.citygml4j.ade.energy.model.supportingClasses.AbstractTimeSeries;
 import org.citygml4j.ade.energy.model.supportingClasses.DailyPatternSchedule;
+import org.citygml4j.ade.energy.model.supportingClasses.DailySchedule;
+import org.citygml4j.ade.energy.model.supportingClasses.DailyScheduleProperty;
+import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYear;
+import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYearProperty;
 import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeries;
 import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeriesFile;
 import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
@@ -116,6 +120,24 @@ public class EnergyADEGMLWalker implements ADEWalker<GMLWalker> {
 
     public void visit(DailyPatternSchedule dailyPatternSchedule) {
         visit((AbstractSchedule)dailyPatternSchedule);
+
+        if (dailyPatternSchedule.isSetPeriodOfYear()) {
+            for (PeriodOfYearProperty property : dailyPatternSchedule.getPeriodOfYear()) {
+                if (property.isSetPeriodOfYear()) {
+                    PeriodOfYear periodOfYear = property.getPeriodOfYear();
+                    if (periodOfYear.isSetDailySchedule()) {
+                        for (DailyScheduleProperty scheduleProperty : periodOfYear.getDailySchedule()) {
+                            if (scheduleProperty.isSetDaySchedule()) {
+                                DailySchedule dailySchedule = scheduleProperty.getDaySchedule();
+                                if (dailySchedule.isSetSchedule()) {
+                                    walker.visit((AssociationByRepOrRef<AbstractTimeSeries>)dailySchedule.getSchedule());
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     public void visit(DemandsProperty demandsProperty) {
