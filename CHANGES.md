@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+### 1.0.4 - 2021-09-25
+
+##### Changes
+
+* Updated citygml4j to 2.11.4.
+
 ### 1.0.3 - 2021-04-30
 
 ##### Fixes
