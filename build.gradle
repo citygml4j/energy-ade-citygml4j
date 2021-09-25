@@ -21,7 +21,7 @@ java {
 
 allprojects {
     group 'org.citygml4j.ade'
-    version '1.0.3'
+    version '1.0.4'
     description 'CityGML EnergyADE module for citygml4j'
 
     ext {
