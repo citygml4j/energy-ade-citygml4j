@@ -1,11 +1,18 @@
 # Energy ADE module for citygml4j
 
 This is a citygml4j module for the **Energy Application Domain Extension** (Energy ADE) for CityGML.
-The Energy ADE extends CityGML by features and properties necessary to perform energy simulations and to store and
-exchange the corresponding results.
 
-This module adds support for parsing and writing Energy ADE enriched CityGML datasets to citygml4j. The support
-is tailored to the **Karlsruhe Institute of Technology (KIT) profile of the Energy ADE version 1.0**.
+**NOTE:** The Energy ADE module is intended to be used with [citygml4j v2](https://github.com/citygml4j/citygml4j/tree/citygml4j-v2)
+and works fine in this context. However, note that citygml4j v2 is in _maintenance mode_ and that the
+[current release](https://github.com/citygml4j/energy-ade-citygml4j/releases/latest) of the Energy ADE module
+_cannot be used_ with the latest [citygml4j v3](https://github.com/citygml4j/citygml4j) development. There are
+currently _no plans to migrate_ the Energy ADE module to citygml4j v3.
+
+## About the module
+The Energy ADE extends CityGML by features and properties necessary to perform energy simulations and to store and
+exchange the corresponding results. This module adds support for parsing and writing Energy ADE enriched CityGML
+datasets to citygml4j. The support is tailored to the **Karlsruhe Institute of Technology (KIT) profile of the
+Energy ADE version 1.0**.
 
 * **Energy ADE specification and material: http://www.citygmlwiki.org/index.php/CityGML_Energy_ADE**
 * **Where to file issues: https://github.com/citygml4j/energy-ade-citygml4j/issues**
