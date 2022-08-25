@@ -2,7 +2,7 @@
 
 This is a citygml4j module for the **Energy Application Domain Extension** (Energy ADE) for CityGML.
 
-**NOTE:** The Energy ADE module is intended to be used with [citygml4j v2](https://github.com/citygml4j/citygml4j/tree/citygml4j-v2)
+:information_source: The Energy ADE module is intended to be used with [citygml4j v2](https://github.com/citygml4j/citygml4j/tree/citygml4j-v2)
 and works fine in this context. However, note that citygml4j v2 is in _maintenance mode_ and that the
 [current release](https://github.com/citygml4j/energy-ade-citygml4j/releases/latest) of the Energy ADE module
 _cannot be used_ with the latest [citygml4j v3](https://github.com/citygml4j/citygml4j) development. There are
