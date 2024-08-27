@@ -70,7 +70,7 @@ javadoc {
     doFirst {
         copy {
             from 'resources/javadoc/overview.html'
-            into "$buildDir/tmp/javadoc"
+            into "$projectDir/build/tmp/javadoc"
             filter(ReplaceTokens, tokens: [
                     name: project.name,
                     version: project.version
