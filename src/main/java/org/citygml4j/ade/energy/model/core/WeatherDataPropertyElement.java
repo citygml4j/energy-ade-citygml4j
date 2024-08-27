@@ -4,7 +4,7 @@
  *
  * energy-ade-citygml4j is part of the citygml4j project
  *
- * Copyright 2019-2021 Claus Nagel <claus.nagel@gmail.com>
+ * Copyright 2019-2024 Claus Nagel <claus.nagel@gmail.com>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
