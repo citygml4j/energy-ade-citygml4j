@@ -66,7 +66,7 @@ public class AbstractConstructionProperty extends FeatureProperty<AbstractConstr
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        AbstractConstructionProperty copy = (target == null) ? new AbstractConstructionProperty() : (AbstractConstructionProperty)target;
+        AbstractConstructionProperty copy = (target == null) ? new AbstractConstructionProperty() : (AbstractConstructionProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

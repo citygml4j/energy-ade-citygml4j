@@ -62,7 +62,7 @@ public class FloorAreaProperty extends AssociationByRep<FloorArea> implements AD
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        FloorAreaProperty copy = (target == null) ? new FloorAreaProperty() : (FloorAreaProperty)target;
+        FloorAreaProperty copy = (target == null) ? new FloorAreaProperty() : (FloorAreaProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

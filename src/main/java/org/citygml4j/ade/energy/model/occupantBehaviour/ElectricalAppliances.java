@@ -32,7 +32,7 @@ public class ElectricalAppliances extends Facilities {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ElectricalAppliances copy = (target == null) ? new ElectricalAppliances() : (ElectricalAppliances)target;
+        ElectricalAppliances copy = (target == null) ? new ElectricalAppliances() : (ElectricalAppliances) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

@@ -66,7 +66,7 @@ public class AbstractScheduleProperty extends AssociationByRepOrRef<AbstractSche
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        AbstractScheduleProperty copy = (target == null) ? new AbstractScheduleProperty() : (AbstractScheduleProperty)target;
+        AbstractScheduleProperty copy = (target == null) ? new AbstractScheduleProperty() : (AbstractScheduleProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

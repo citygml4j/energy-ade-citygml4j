@@ -62,7 +62,7 @@ public class TransmittanceProperty extends AssociationByRep<Transmittance> imple
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        TransmittanceProperty copy = (target == null) ? new TransmittanceProperty() : (TransmittanceProperty)target;
+        TransmittanceProperty copy = (target == null) ? new TransmittanceProperty() : (TransmittanceProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

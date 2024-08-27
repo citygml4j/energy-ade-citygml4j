@@ -121,7 +121,7 @@ public class TimeValuesProperties implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        TimeValuesProperties copy = (target == null) ? new TimeValuesProperties() : (TimeValuesProperties)target;
+        TimeValuesProperties copy = (target == null) ? new TimeValuesProperties() : (TimeValuesProperties) target;
 
         if (isSetAcquisitionMethod())
             copy.setAcquisitionMethod(acquisitionMethod);

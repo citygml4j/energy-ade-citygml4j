@@ -44,7 +44,7 @@ public enum WeatherDataTypeValue {
     }
 
     public static WeatherDataTypeValue fromValue(String v) {
-        for (WeatherDataTypeValue c: WeatherDataTypeValue.values()) {
+        for (WeatherDataTypeValue c : WeatherDataTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

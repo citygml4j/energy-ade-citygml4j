@@ -36,7 +36,7 @@ public enum SurfaceSide {
     }
 
     public static SurfaceSide fromValue(String v) {
-        for (SurfaceSide c: SurfaceSide.values()) {
+        for (SurfaceSide c : SurfaceSide.values()) {
             if (c.value.equals(v))
                 return c;
         }

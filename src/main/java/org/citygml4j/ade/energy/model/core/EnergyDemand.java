@@ -129,24 +129,24 @@ public class EnergyDemand extends AbstractFeature implements ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        EnergyDemand copy = (target == null) ? new EnergyDemand() : (EnergyDemand)target;
+        EnergyDemand copy = (target == null) ? new EnergyDemand() : (EnergyDemand) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetEndUse())
             copy.setEndUse(endUse);
 
         if (isSetEnergyAmount())
-            copy.setEnergyAmount((AbstractTimeSeriesProperty)copyBuilder.copy(energyAmount));
+            copy.setEnergyAmount((AbstractTimeSeriesProperty) copyBuilder.copy(energyAmount));
 
         if (isSetEnergyCarrierType())
-            copy.setEnergyCarrierType((Code)copyBuilder.copy(energyCarrierType));
+            copy.setEnergyCarrierType((Code) copyBuilder.copy(energyCarrierType));
 
         if (isSetMaximumLoad())
-            copy.setMaximumLoad((Measure)copyBuilder.copy(maximumLoad));
+            copy.setMaximumLoad((Measure) copyBuilder.copy(maximumLoad));
 
         if (isSetDemandedBy()) {
             for (Reference part : demandedBy) {
-                Reference copyPart = (Reference)copyBuilder.copy(part);
+                Reference copyPart = (Reference) copyBuilder.copy(part);
                 copy.addDemandedBy(copyPart);
 
                 if (part != null && copyPart == part)

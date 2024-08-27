@@ -62,7 +62,7 @@ public class VolumeTypeProperty extends AssociationByRep<VolumeType> implements 
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        VolumeTypeProperty copy = (target == null) ? new VolumeTypeProperty() : (VolumeTypeProperty)target;
+        VolumeTypeProperty copy = (target == null) ? new VolumeTypeProperty() : (VolumeTypeProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

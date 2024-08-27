@@ -81,16 +81,16 @@ public class RegularTimeSeries extends AbstractTimeSeries {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        RegularTimeSeries copy = (target == null) ? new RegularTimeSeries() : (RegularTimeSeries)target;
+        RegularTimeSeries copy = (target == null) ? new RegularTimeSeries() : (RegularTimeSeries) target;
 
         if (isSetTemporalExtent())
-            copy.setTemporalExtent((TimePeriodProperty)copyBuilder.copy(temporalExtent));
+            copy.setTemporalExtent((TimePeriodProperty) copyBuilder.copy(temporalExtent));
 
         if (isSetTimeInterval())
-            copy.setTimeInterval((TimeIntervalLength)copyBuilder.copy(timeInterval));
+            copy.setTimeInterval((TimeIntervalLength) copyBuilder.copy(timeInterval));
 
         if (isSetValues())
-            copy.setValues((MeasureList)copyBuilder.copy(values));
+            copy.setValues((MeasureList) copyBuilder.copy(values));
 
         return super.copyTo(copy, copyBuilder);
     }

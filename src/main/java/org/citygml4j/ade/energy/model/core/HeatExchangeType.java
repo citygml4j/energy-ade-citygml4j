@@ -122,19 +122,19 @@ public class HeatExchangeType implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        HeatExchangeType copy = (target == null) ? new HeatExchangeType() : (HeatExchangeType)target;
+        HeatExchangeType copy = (target == null) ? new HeatExchangeType() : (HeatExchangeType) target;
 
         if (isSetConvectiveFraction())
-            copy.setConvectiveFraction((Scale)copyBuilder.copy(convectiveFraction));
+            copy.setConvectiveFraction((Scale) copyBuilder.copy(convectiveFraction));
 
         if (isSetLatentFraction())
-            copy.setLatentFraction((Scale)copyBuilder.copy(latentFraction));
+            copy.setLatentFraction((Scale) copyBuilder.copy(latentFraction));
 
         if (isSetRadiantFraction())
-            copy.setRadiantFraction((Scale)copyBuilder.copy(radiantFraction));
+            copy.setRadiantFraction((Scale) copyBuilder.copy(radiantFraction));
 
         if (isSetTotalValue())
-            copy.setTotalValue((Measure)copyBuilder.copy(totalValue));
+            copy.setTotalValue((Measure) copyBuilder.copy(totalValue));
 
         copy.unsetParent();
         return copy;

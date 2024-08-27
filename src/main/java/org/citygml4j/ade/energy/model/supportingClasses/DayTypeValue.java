@@ -45,7 +45,7 @@ public enum DayTypeValue {
     }
 
     public static DayTypeValue fromValue(String v) {
-        for (DayTypeValue c: DayTypeValue.values()) {
+        for (DayTypeValue c : DayTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

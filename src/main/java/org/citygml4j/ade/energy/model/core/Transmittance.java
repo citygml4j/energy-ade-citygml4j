@@ -86,10 +86,10 @@ public class Transmittance implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        Transmittance copy = (target == null) ? new Transmittance() : (Transmittance)target;
+        Transmittance copy = (target == null) ? new Transmittance() : (Transmittance) target;
 
         if (isSetFraction())
-            copy.setFraction((Scale)copyBuilder.copy(fraction));
+            copy.setFraction((Scale) copyBuilder.copy(fraction));
 
         if (isSetWavelengthRangeType())
             copy.setWavelengthRangeType(wavelengthRangeType);

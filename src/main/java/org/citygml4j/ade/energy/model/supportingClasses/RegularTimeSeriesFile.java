@@ -156,16 +156,16 @@ public class RegularTimeSeriesFile extends AbstractTimeSeries {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        RegularTimeSeriesFile copy = (target == null) ? new RegularTimeSeriesFile() : (RegularTimeSeriesFile)target;
+        RegularTimeSeriesFile copy = (target == null) ? new RegularTimeSeriesFile() : (RegularTimeSeriesFile) target;
 
         if (isSetFile())
             copy.setFile(copyBuilder.copy(file));
 
         if (isSetTemporalExtent())
-            copy.setTemporalExtent((TimePeriodProperty)copyBuilder.copy(temporalExtent));
+            copy.setTemporalExtent((TimePeriodProperty) copyBuilder.copy(temporalExtent));
 
         if (isSetTimeInterval())
-            copy.setTimeInterval((TimeIntervalLength)copyBuilder.copy(timeInterval));
+            copy.setTimeInterval((TimeIntervalLength) copyBuilder.copy(timeInterval));
 
         if (isSetNumberOfHeaderLines())
             copy.setNumberOfHeaderLines(numberOfHeaderLines);

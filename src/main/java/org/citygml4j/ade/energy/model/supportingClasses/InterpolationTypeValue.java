@@ -47,7 +47,7 @@ public enum InterpolationTypeValue {
     }
 
     public static InterpolationTypeValue fromValue(String v) {
-        for (InterpolationTypeValue c: InterpolationTypeValue.values()) {
+        for (InterpolationTypeValue c : InterpolationTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

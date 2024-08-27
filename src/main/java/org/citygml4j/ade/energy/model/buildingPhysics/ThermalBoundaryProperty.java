@@ -66,7 +66,7 @@ public class ThermalBoundaryProperty extends FeatureProperty<ThermalBoundary> im
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ThermalBoundaryProperty copy = (target == null) ? new ThermalBoundaryProperty() : (ThermalBoundaryProperty)target;
+        ThermalBoundaryProperty copy = (target == null) ? new ThermalBoundaryProperty() : (ThermalBoundaryProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

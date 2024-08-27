@@ -38,7 +38,7 @@ public enum ConstructionWeightValue {
     }
 
     public static ConstructionWeightValue fromValue(String v) {
-        for (ConstructionWeightValue c: ConstructionWeightValue.values()) {
+        for (ConstructionWeightValue c : ConstructionWeightValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

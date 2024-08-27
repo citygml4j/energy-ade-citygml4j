@@ -66,7 +66,7 @@ public class AbstractMaterialProperty extends FeatureProperty<AbstractMaterial> 
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        AbstractMaterialProperty copy = (target == null) ? new AbstractMaterialProperty() : (AbstractMaterialProperty)target;
+        AbstractMaterialProperty copy = (target == null) ? new AbstractMaterialProperty() : (AbstractMaterialProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

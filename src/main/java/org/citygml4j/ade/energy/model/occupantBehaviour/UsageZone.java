@@ -172,15 +172,15 @@ public class UsageZone extends AbstractUsageZone {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        UsageZone copy = (target == null) ? new UsageZone() : (UsageZone)target;
+        UsageZone copy = (target == null) ? new UsageZone() : (UsageZone) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetCoolingSchedule())
-            copy.setCoolingSchedule((AbstractScheduleProperty)copyBuilder.copy(coolingSchedule));
+            copy.setCoolingSchedule((AbstractScheduleProperty) copyBuilder.copy(coolingSchedule));
 
         if (isSetFloorArea()) {
             for (FloorAreaProperty part : floorArea) {
-                FloorAreaProperty copyPart = (FloorAreaProperty)copyBuilder.copy(part);
+                FloorAreaProperty copyPart = (FloorAreaProperty) copyBuilder.copy(part);
                 copy.addFloorArea(copyPart);
 
                 if (part != null && copyPart == part)
@@ -189,17 +189,17 @@ public class UsageZone extends AbstractUsageZone {
         }
 
         if (isSetHeatingSchedule())
-            copy.setHeatingSchedule((AbstractScheduleProperty)copyBuilder.copy(heatingSchedule));
+            copy.setHeatingSchedule((AbstractScheduleProperty) copyBuilder.copy(heatingSchedule));
 
         if (isSetUsageZoneType())
-            copy.setUsageZoneType((Code)copyBuilder.copy(usageZoneType));
+            copy.setUsageZoneType((Code) copyBuilder.copy(usageZoneType));
 
         if (isSetVentilationSchedule())
-            copy.setVentilationSchedule((AbstractScheduleProperty)copyBuilder.copy(ventilationSchedule));
+            copy.setVentilationSchedule((AbstractScheduleProperty) copyBuilder.copy(ventilationSchedule));
 
         if (isSetOccupiedBy()) {
             for (OccupantsProperty part : occupiedBy) {
-                OccupantsProperty copyPart = (OccupantsProperty)copyBuilder.copy(part);
+                OccupantsProperty copyPart = (OccupantsProperty) copyBuilder.copy(part);
                 copy.addOccupiedBy(copyPart);
 
                 if (part != null && copyPart == part)
@@ -209,7 +209,7 @@ public class UsageZone extends AbstractUsageZone {
 
         if (isSetEquippedWith()) {
             for (FacilitiesProperty part : equippedWith) {
-                FacilitiesProperty copyPart = (FacilitiesProperty)copyBuilder.copy(part);
+                FacilitiesProperty copyPart = (FacilitiesProperty) copyBuilder.copy(part);
                 copy.addEquippedWith(copyPart);
 
                 if (part != null && copyPart == part)

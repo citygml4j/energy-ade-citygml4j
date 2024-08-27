@@ -97,20 +97,20 @@ public class SolidMaterial extends AbstractMaterial {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        SolidMaterial copy = (target == null) ? new SolidMaterial() : (SolidMaterial)target;
+        SolidMaterial copy = (target == null) ? new SolidMaterial() : (SolidMaterial) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetConductivity())
-            copy.setConductivity((Measure)copyBuilder.copy(conductivity));
+            copy.setConductivity((Measure) copyBuilder.copy(conductivity));
 
         if (isSetDensity())
-            copy.setDensity((Measure)copyBuilder.copy(density));
+            copy.setDensity((Measure) copyBuilder.copy(density));
 
         if (isSetPermeance())
-            copy.setPermeance((Measure)copyBuilder.copy(permeance));
+            copy.setPermeance((Measure) copyBuilder.copy(permeance));
 
         if (isSetSpecificHeat())
-            copy.setSpecificHeat((Measure)copyBuilder.copy(specificHeat));
+            copy.setSpecificHeat((Measure) copyBuilder.copy(specificHeat));
 
         return copy;
     }

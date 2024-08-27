@@ -29,18 +29,8 @@ import org.citygml4j.ade.energy.model.core.AbstractConstruction;
 import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
 import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
 import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Layer;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponent;
-import org.citygml4j.ade.energy.model.materialAndConstruction.SolidMaterial;
-import org.citygml4j.ade.energy.model.occupantBehaviour.DHWFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.ElectricalAppliances;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Facilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
-import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
+import org.citygml4j.ade.energy.model.materialAndConstruction.*;
+import org.citygml4j.ade.energy.model.occupantBehaviour.*;
 import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
 import org.citygml4j.model.gml.feature.AbstractFeature;
 import org.citygml4j.model.module.ade.ADEModule;
@@ -48,11 +38,7 @@ import org.citygml4j.model.module.citygml.CityGMLVersion;
 
 import javax.xml.namespace.QName;
 import java.net.URL;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class EnergyADEModule extends ADEModule {
     public static final EnergyADEModule v1_0 = new EnergyADEModule();

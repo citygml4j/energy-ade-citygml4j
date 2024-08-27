@@ -107,7 +107,7 @@ public class TimeIntervalLength implements ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        TimeIntervalLength copy = (target == null) ? new TimeIntervalLength() : (TimeIntervalLength)target;
+        TimeIntervalLength copy = (target == null) ? new TimeIntervalLength() : (TimeIntervalLength) target;
 
         if (isSetValue())
             copy.setValue(value);

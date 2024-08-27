@@ -66,7 +66,7 @@ public class LayerProperty extends FeatureProperty<Layer> implements ADEModelObj
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        LayerProperty copy = (target == null) ? new LayerProperty() : (LayerProperty)target;
+        LayerProperty copy = (target == null) ? new LayerProperty() : (LayerProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

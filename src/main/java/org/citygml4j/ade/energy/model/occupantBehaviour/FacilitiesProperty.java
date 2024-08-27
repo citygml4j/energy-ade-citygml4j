@@ -66,7 +66,7 @@ public class FacilitiesProperty extends FeatureProperty<Facilities> implements A
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        FacilitiesProperty copy = (target == null) ? new FacilitiesProperty() : (FacilitiesProperty)target;
+        FacilitiesProperty copy = (target == null) ? new FacilitiesProperty() : (FacilitiesProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

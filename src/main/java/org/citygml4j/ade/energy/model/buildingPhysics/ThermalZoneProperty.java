@@ -66,7 +66,7 @@ public class ThermalZoneProperty extends FeatureProperty<ThermalZone> implements
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ThermalZoneProperty copy = (target == null) ? new ThermalZoneProperty() : (ThermalZoneProperty)target;
+        ThermalZoneProperty copy = (target == null) ? new ThermalZoneProperty() : (ThermalZoneProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

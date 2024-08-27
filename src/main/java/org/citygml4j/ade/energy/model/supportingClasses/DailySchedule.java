@@ -85,13 +85,13 @@ public class DailySchedule implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        DailySchedule copy = (target == null) ? new DailySchedule() : (DailySchedule)target;
+        DailySchedule copy = (target == null) ? new DailySchedule() : (DailySchedule) target;
 
         if (isSetDayType())
             copy.setDayType(dayType);
 
         if (isSetSchedule())
-            copy.setSchedule((AbstractTimeSeriesProperty)copyBuilder.copy(schedule));
+            copy.setSchedule((AbstractTimeSeriesProperty) copyBuilder.copy(schedule));
 
         copy.unsetParent();
         return copy;

@@ -100,10 +100,10 @@ public class Reflectance implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        Reflectance copy = (target == null) ? new Reflectance() : (Reflectance)target;
+        Reflectance copy = (target == null) ? new Reflectance() : (Reflectance) target;
 
         if (isSetFraction())
-            copy.setFraction((Scale)copyBuilder.copy(fraction));
+            copy.setFraction((Scale) copyBuilder.copy(fraction));
 
         if (isSetSurface())
             copy.setSurface(surface);

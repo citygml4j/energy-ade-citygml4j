@@ -66,7 +66,7 @@ public class ThermalOpeningProperty extends FeatureProperty<ThermalOpening> impl
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ThermalOpeningProperty copy = (target == null) ? new ThermalOpeningProperty() : (ThermalOpeningProperty)target;
+        ThermalOpeningProperty copy = (target == null) ? new ThermalOpeningProperty() : (ThermalOpeningProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

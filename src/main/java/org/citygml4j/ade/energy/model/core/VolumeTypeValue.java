@@ -37,7 +37,7 @@ public enum VolumeTypeValue {
     }
 
     public static VolumeTypeValue fromValue(String v) {
-        for (VolumeTypeValue c: VolumeTypeValue.values()) {
+        for (VolumeTypeValue c : VolumeTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

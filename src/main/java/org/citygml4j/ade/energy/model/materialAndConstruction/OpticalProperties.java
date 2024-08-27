@@ -123,11 +123,11 @@ public class OpticalProperties implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        OpticalProperties copy = (target == null) ? new OpticalProperties() : (OpticalProperties)target;
+        OpticalProperties copy = (target == null) ? new OpticalProperties() : (OpticalProperties) target;
 
         if (isSetReflectance()) {
             for (ReflectanceProperty part : reflectance) {
-                ReflectanceProperty copyPart = (ReflectanceProperty)copyBuilder.copy(part);
+                ReflectanceProperty copyPart = (ReflectanceProperty) copyBuilder.copy(part);
                 copy.addReflectance(copyPart);
 
                 if (part != null && copyPart == part)
@@ -137,7 +137,7 @@ public class OpticalProperties implements Associable, ADEModelObject {
 
         if (isSetTransmittance()) {
             for (TransmittanceProperty part : transmittance) {
-                TransmittanceProperty copyPart = (TransmittanceProperty)copyBuilder.copy(part);
+                TransmittanceProperty copyPart = (TransmittanceProperty) copyBuilder.copy(part);
                 copy.addTransmittance(copyPart);
 
                 if (part != null && copyPart == part)
@@ -146,7 +146,7 @@ public class OpticalProperties implements Associable, ADEModelObject {
         }
 
         if (isSetGlazingRatio())
-            copy.setGlazingRatio((Scale)copyBuilder.copy(glazingRatio));
+            copy.setGlazingRatio((Scale) copyBuilder.copy(glazingRatio));
 
         copy.unsetParent();
         return copy;

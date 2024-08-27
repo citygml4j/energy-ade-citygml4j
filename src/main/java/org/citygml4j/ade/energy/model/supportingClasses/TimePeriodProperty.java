@@ -66,7 +66,7 @@ public class TimePeriodProperty extends AssociationByRepOrRef<TimePeriod> implem
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        TimePeriodProperty copy = (target == null) ? new TimePeriodProperty() : (TimePeriodProperty)target;
+        TimePeriodProperty copy = (target == null) ? new TimePeriodProperty() : (TimePeriodProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

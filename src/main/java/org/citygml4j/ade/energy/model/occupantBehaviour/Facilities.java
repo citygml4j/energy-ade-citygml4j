@@ -72,14 +72,14 @@ public class Facilities extends AbstractCityObject implements ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        Facilities copy = (target == null) ? new Facilities() : (Facilities)target;
+        Facilities copy = (target == null) ? new Facilities() : (Facilities) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetHeatDissipation())
-            copy.setHeatDissipation((HeatExchangeTypeProperty)copyBuilder.copy(heatDissipation));
+            copy.setHeatDissipation((HeatExchangeTypeProperty) copyBuilder.copy(heatDissipation));
 
         if (isSetOperationSchedule())
-            copy.setOperationSchedule((AbstractScheduleProperty)copyBuilder.copy(operationSchedule));
+            copy.setOperationSchedule((AbstractScheduleProperty) copyBuilder.copy(operationSchedule));
 
         return copy;
     }

@@ -38,7 +38,7 @@ public enum TimeIndeterminateValue {
     }
 
     public static TimeIndeterminateValue fromValue(String v) {
-        for (TimeIndeterminateValue c: TimeIndeterminateValue.values()) {
+        for (TimeIndeterminateValue c : TimeIndeterminateValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

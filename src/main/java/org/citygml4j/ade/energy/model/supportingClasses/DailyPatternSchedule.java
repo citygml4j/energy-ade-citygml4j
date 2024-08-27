@@ -58,11 +58,11 @@ public class DailyPatternSchedule extends AbstractSchedule {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        DailyPatternSchedule copy = (target == null) ? new DailyPatternSchedule() : (DailyPatternSchedule)target;
+        DailyPatternSchedule copy = (target == null) ? new DailyPatternSchedule() : (DailyPatternSchedule) target;
 
         if (isSetPeriodOfYear()) {
             for (PeriodOfYearProperty part : periodOfYear) {
-                PeriodOfYearProperty copyPart = (PeriodOfYearProperty)copyBuilder.copy(part);
+                PeriodOfYearProperty copyPart = (PeriodOfYearProperty) copyBuilder.copy(part);
                 copy.addPeriodOfYear(copyPart);
 
                 if (part != null && copyPart == part)

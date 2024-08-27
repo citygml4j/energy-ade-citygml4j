@@ -38,7 +38,7 @@ public enum WavelengthRangeType {
     }
 
     public static WavelengthRangeType fromValue(String v) {
-        for (WavelengthRangeType c: WavelengthRangeType.values()) {
+        for (WavelengthRangeType c : WavelengthRangeType.values()) {
             if (c.value.equals(v))
                 return c;
         }

@@ -62,7 +62,7 @@ public class ReflectanceProperty extends AssociationByRep<Reflectance> implement
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ReflectanceProperty copy = (target == null) ? new ReflectanceProperty() : (ReflectanceProperty)target;
+        ReflectanceProperty copy = (target == null) ? new ReflectanceProperty() : (ReflectanceProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

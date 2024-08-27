@@ -112,17 +112,17 @@ public class WeatherStation extends AbstractCityObject implements ADEModelObject
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        WeatherStation copy = (target == null) ? new WeatherStation() : (WeatherStation)target;
+        WeatherStation copy = (target == null) ? new WeatherStation() : (WeatherStation) target;
 
         if (isSetStationName())
             copy.setStationName(copyBuilder.copy(stationName));
 
         if (isSetPosition())
-            copy.setPosition((PointProperty)copyBuilder.copy(position));
+            copy.setPosition((PointProperty) copyBuilder.copy(position));
 
         if (isSetParameter()) {
             for (WeatherDataProperty part : parameter) {
-                WeatherDataProperty copyPart = (WeatherDataProperty)copyBuilder.copy(part);
+                WeatherDataProperty copyPart = (WeatherDataProperty) copyBuilder.copy(part);
                 copy.addParameter(copyPart);
 
                 if (part != null && copyPart == part)

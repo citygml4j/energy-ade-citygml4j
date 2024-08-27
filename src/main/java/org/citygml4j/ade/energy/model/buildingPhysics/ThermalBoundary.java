@@ -201,30 +201,30 @@ public class ThermalBoundary extends AbstractCityObject implements ADEModelObjec
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ThermalBoundary copy = (target == null) ? new ThermalBoundary() : (ThermalBoundary)target;
+        ThermalBoundary copy = (target == null) ? new ThermalBoundary() : (ThermalBoundary) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetArea())
-            copy.setArea((Area)copyBuilder.copy(area));
+            copy.setArea((Area) copyBuilder.copy(area));
 
         if (isSetAzimuth())
-            copy.setAzimuth((Angle)copyBuilder.copy(azimuth));
+            copy.setAzimuth((Angle) copyBuilder.copy(azimuth));
 
         if (isSetInclination())
-            copy.setInclination((Angle)copyBuilder.copy(inclination));
+            copy.setInclination((Angle) copyBuilder.copy(inclination));
 
         if (isSetThermalBoundaryType())
             copy.setThermalBoundaryType(thermalBoundaryType);
 
         if (isSetConstruction())
-            copy.setConstruction((AbstractConstructionProperty)copyBuilder.copy(construction));
+            copy.setConstruction((AbstractConstructionProperty) copyBuilder.copy(construction));
 
         if (isSetSurfaceGeometry())
-            copy.setSurfaceGeometry((MultiSurfaceProperty)copyBuilder.copy(surfaceGeometry));
+            copy.setSurfaceGeometry((MultiSurfaceProperty) copyBuilder.copy(surfaceGeometry));
 
         if (isSetContains()) {
             for (ThermalOpeningProperty part : contains) {
-                ThermalOpeningProperty copyPart = (ThermalOpeningProperty)copyBuilder.copy(part);
+                ThermalOpeningProperty copyPart = (ThermalOpeningProperty) copyBuilder.copy(part);
                 copy.addContains(copyPart);
 
                 if (part != null && copyPart == part)
@@ -234,7 +234,7 @@ public class ThermalBoundary extends AbstractCityObject implements ADEModelObjec
 
         if (isSetDelimits()) {
             for (ThermalZoneProperty part : delimits) {
-                ThermalZoneProperty copyPart = (ThermalZoneProperty)copyBuilder.copy(part);
+                ThermalZoneProperty copyPart = (ThermalZoneProperty) copyBuilder.copy(part);
                 copy.addDelimits(copyPart);
 
                 if (part != null && copyPart == part)

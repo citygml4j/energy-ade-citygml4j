@@ -62,7 +62,7 @@ public class PeriodOfYearProperty extends AssociationByRep<PeriodOfYear> impleme
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        PeriodOfYearProperty copy = (target == null) ? new PeriodOfYearProperty() : (PeriodOfYearProperty)target;
+        PeriodOfYearProperty copy = (target == null) ? new PeriodOfYearProperty() : (PeriodOfYearProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

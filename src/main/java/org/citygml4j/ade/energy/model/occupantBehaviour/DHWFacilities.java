@@ -32,7 +32,7 @@ public class DHWFacilities extends Facilities {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        DHWFacilities copy = (target == null) ? new DHWFacilities() : (DHWFacilities)target;
+        DHWFacilities copy = (target == null) ? new DHWFacilities() : (DHWFacilities) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

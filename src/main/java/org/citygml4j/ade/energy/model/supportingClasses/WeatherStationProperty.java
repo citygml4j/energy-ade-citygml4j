@@ -66,7 +66,7 @@ public class WeatherStationProperty extends FeatureProperty<WeatherStation> impl
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        WeatherStationProperty copy = (target == null) ? new WeatherStationProperty() : (WeatherStationProperty)target;
+        WeatherStationProperty copy = (target == null) ? new WeatherStationProperty() : (WeatherStationProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

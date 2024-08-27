@@ -62,7 +62,7 @@ public class HeightAboveGroundProperty extends AssociationByRep<HeightAboveGroun
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        HeightAboveGroundProperty copy = (target == null) ? new HeightAboveGroundProperty() : (HeightAboveGroundProperty)target;
+        HeightAboveGroundProperty copy = (target == null) ? new HeightAboveGroundProperty() : (HeightAboveGroundProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

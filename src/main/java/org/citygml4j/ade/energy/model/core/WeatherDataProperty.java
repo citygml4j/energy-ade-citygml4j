@@ -66,7 +66,7 @@ public class WeatherDataProperty extends AssociationByRepOrRef<WeatherData> impl
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        WeatherDataProperty copy = (target == null) ? new WeatherDataProperty() : (WeatherDataProperty)target;
+        WeatherDataProperty copy = (target == null) ? new WeatherDataProperty() : (WeatherDataProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

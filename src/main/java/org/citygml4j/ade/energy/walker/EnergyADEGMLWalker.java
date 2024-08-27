@@ -21,49 +21,11 @@
 
 package org.citygml4j.ade.energy.walker;
 
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundary;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundaryProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpening;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpeningProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZoneProperty;
-import org.citygml4j.ade.energy.model.core.AbstractConstruction;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.DemandsProperty;
-import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
-import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.WeatherData;
-import org.citygml4j.ade.energy.model.core.WeatherDataProperty;
-import org.citygml4j.ade.energy.model.core.WeatherDataPropertyElement;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Layer;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponent;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponentProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.SolidMaterial;
-import org.citygml4j.ade.energy.model.occupantBehaviour.DHWFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.ElectricalAppliances;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Facilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.FacilitiesProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
-import org.citygml4j.ade.energy.model.occupantBehaviour.OccupantsProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractSchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractTimeSeries;
-import org.citygml4j.ade.energy.model.supportingClasses.DailyPatternSchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.DailySchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.DailyScheduleProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYear;
-import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYearProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeries;
-import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeriesFile;
-import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
+import org.citygml4j.ade.energy.model.buildingPhysics.*;
+import org.citygml4j.ade.energy.model.core.*;
+import org.citygml4j.ade.energy.model.materialAndConstruction.*;
+import org.citygml4j.ade.energy.model.occupantBehaviour.*;
+import org.citygml4j.ade.energy.model.supportingClasses.*;
 import org.citygml4j.model.citygml.ade.binding.ADEWalker;
 import org.citygml4j.model.citygml.core.AbstractCityObject;
 import org.citygml4j.model.gml.base.AbstractGML;
@@ -81,45 +43,45 @@ public class EnergyADEGMLWalker implements ADEWalker<GMLWalker> {
     }
 
     public void visit(AbstractConstruction abstractConstruction) {
-        walker.visit((AbstractFeature)abstractConstruction);
+        walker.visit((AbstractFeature) abstractConstruction);
     }
 
     public void visit(AbstractMaterial abstractMaterial) {
-        walker.visit((AbstractFeature)abstractMaterial);
+        walker.visit((AbstractFeature) abstractMaterial);
     }
 
     public void visit(AbstractSchedule abstractSchedule) {
-        walker.visit((AbstractGML)abstractSchedule);
+        walker.visit((AbstractGML) abstractSchedule);
     }
 
     public void visit(AbstractThermalZone abstractThermalZone) {
-        walker.visit((AbstractCityObject)abstractThermalZone);
+        walker.visit((AbstractCityObject) abstractThermalZone);
 
         if (abstractThermalZone.isSetContains()) {
             for (AbstractUsageZoneProperty property : abstractThermalZone.getContains())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(AbstractTimeSeries abstractTimeSeries) {
-        walker.visit((AbstractGML)abstractTimeSeries);
+        walker.visit((AbstractGML) abstractTimeSeries);
     }
 
     public void visit(AbstractUsageZone abstractUsageZone) {
-        walker.visit((AbstractCityObject)abstractUsageZone);
+        walker.visit((AbstractCityObject) abstractUsageZone);
     }
 
     public void visit(Construction construction) {
-        visit((AbstractConstruction)construction);
+        visit((AbstractConstruction) construction);
 
         if (construction.isSetLayer()) {
             for (LayerProperty property : construction.getLayer())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(DailyPatternSchedule dailyPatternSchedule) {
-        visit((AbstractSchedule)dailyPatternSchedule);
+        visit((AbstractSchedule) dailyPatternSchedule);
 
         if (dailyPatternSchedule.isSetPeriodOfYear()) {
             for (PeriodOfYearProperty property : dailyPatternSchedule.getPeriodOfYear()) {
@@ -130,7 +92,7 @@ public class EnergyADEGMLWalker implements ADEWalker<GMLWalker> {
                             if (scheduleProperty.isSetDaySchedule()) {
                                 DailySchedule dailySchedule = scheduleProperty.getDaySchedule();
                                 if (dailySchedule.isSetSchedule()) {
-                                    walker.visit((AssociationByRepOrRef<AbstractTimeSeries>)dailySchedule.getSchedule());
+                                    walker.visit((AssociationByRepOrRef<AbstractTimeSeries>) dailySchedule.getSchedule());
                                 }
                             }
                         }
@@ -141,88 +103,88 @@ public class EnergyADEGMLWalker implements ADEWalker<GMLWalker> {
     }
 
     public void visit(DemandsProperty demandsProperty) {
-        walker.visit((FeatureProperty<?>)demandsProperty.getValue());
+        walker.visit((FeatureProperty<?>) demandsProperty.getValue());
     }
 
     public void visit(DHWFacilities dhwFacilities) {
-        visit((Facilities)dhwFacilities);
+        visit((Facilities) dhwFacilities);
     }
 
     public void visit(ElectricalAppliances electricalAppliances) {
-        visit((Facilities)electricalAppliances);
+        visit((Facilities) electricalAppliances);
     }
 
     public void visit(EnergyDemand energyDemand) {
-        walker.visit((AbstractFeature)energyDemand);
+        walker.visit((AbstractFeature) energyDemand);
 
         if (energyDemand.isSetEnergyAmount())
-            walker.visit((AssociationByRepOrRef<AbstractTimeSeries>)energyDemand.getEnergyAmount());
+            walker.visit((AssociationByRepOrRef<AbstractTimeSeries>) energyDemand.getEnergyAmount());
     }
 
     public void visit(Facilities facilities) {
-        walker.visit((AbstractCityObject)facilities);
+        walker.visit((AbstractCityObject) facilities);
 
         if (facilities.isSetOperationSchedule())
-            walker.visit((AssociationByRepOrRef<AbstractSchedule>)facilities.getOperationSchedule());
+            walker.visit((AssociationByRepOrRef<AbstractSchedule>) facilities.getOperationSchedule());
     }
 
     public void visit(Gas gas) {
-        visit((AbstractMaterial)gas);
+        visit((AbstractMaterial) gas);
     }
 
     public void visit(Layer layer) {
-        walker.visit((AbstractFeature)layer);
+        walker.visit((AbstractFeature) layer);
 
         if (layer.isSetLayerComponent()) {
             for (LayerComponentProperty property : layer.getLayerComponent())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(LayerComponent layerComponent) {
-        walker.visit((AbstractFeature)layerComponent);
+        walker.visit((AbstractFeature) layerComponent);
 
         if (layerComponent.isSetMaterial())
-            walker.visit((FeatureProperty<?>)layerComponent.getMaterial());
+            walker.visit((FeatureProperty<?>) layerComponent.getMaterial());
     }
 
     public void visit(LightingFacilities lightingFacilities) {
-        visit((Facilities)lightingFacilities);
+        visit((Facilities) lightingFacilities);
     }
 
     public void visit(Occupants occupants) {
-        walker.visit((AbstractFeature)occupants);
+        walker.visit((AbstractFeature) occupants);
 
         if (occupants.isSetOccupancyRate())
-            walker.visit((AssociationByRepOrRef<AbstractSchedule>)occupants.getOccupancyRate());
+            walker.visit((AssociationByRepOrRef<AbstractSchedule>) occupants.getOccupancyRate());
     }
 
     public void visit(RegularTimeSeries regularTimeSeries) {
-        visit((AbstractTimeSeries)regularTimeSeries);
+        visit((AbstractTimeSeries) regularTimeSeries);
     }
 
     public void visit(RegularTimeSeriesFile regularTimeSeriesFile) {
-        visit((AbstractTimeSeries)regularTimeSeriesFile);
+        visit((AbstractTimeSeries) regularTimeSeriesFile);
     }
 
     public void visit(SolidMaterial solidMaterial) {
-        visit((AbstractMaterial)solidMaterial);
+        visit((AbstractMaterial) solidMaterial);
     }
 
     public void visit(ThermalBoundary thermalBoundary) {
-        walker.visit((AbstractCityObject)thermalBoundary);
+        walker.visit((AbstractCityObject) thermalBoundary);
 
         if (thermalBoundary.isSetConstruction())
-            walker.visit((FeatureProperty<?>)thermalBoundary.getConstruction());
+            walker.visit((FeatureProperty<?>) thermalBoundary.getConstruction());
 
         if (thermalBoundary.isSetContains()) {
             for (ThermalOpeningProperty property : thermalBoundary.getContains())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (thermalBoundary.isSetDelimits()) {
             for (ThermalZoneProperty property : thermalBoundary.getDelimits())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (thermalBoundary.isSetSurfaceGeometry())
@@ -230,21 +192,21 @@ public class EnergyADEGMLWalker implements ADEWalker<GMLWalker> {
     }
 
     public void visit(ThermalOpening thermalOpening) {
-        walker.visit((AbstractCityObject)thermalOpening);
+        walker.visit((AbstractCityObject) thermalOpening);
 
         if (thermalOpening.isSetConstruction())
-            walker.visit((FeatureProperty<?>)thermalOpening.getConstruction());
+            walker.visit((FeatureProperty<?>) thermalOpening.getConstruction());
 
         if (thermalOpening.isSetSurfaceGeometry())
             walker.visit(thermalOpening.getSurfaceGeometry());
     }
 
     public void visit(ThermalZone thermalZone) {
-        visit((AbstractThermalZone)thermalZone);
+        visit((AbstractThermalZone) thermalZone);
 
         if (thermalZone.isSetThermalBoundary()) {
             for (ThermalBoundaryProperty property : thermalZone.getThermalBoundary())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (thermalZone.isSetVolumeGeometry())
@@ -252,52 +214,52 @@ public class EnergyADEGMLWalker implements ADEWalker<GMLWalker> {
     }
 
     public void visit(ThermalZonePropertyElement thermalZonePropertyElement) {
-        walker.visit((FeatureProperty<?>)thermalZonePropertyElement.getValue());
+        walker.visit((FeatureProperty<?>) thermalZonePropertyElement.getValue());
     }
 
     public void visit(UsageZone usageZone) {
-        visit((AbstractUsageZone)usageZone);
+        visit((AbstractUsageZone) usageZone);
 
         if (usageZone.isSetOccupiedBy()) {
             for (OccupantsProperty property : usageZone.getOccupiedBy())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (usageZone.isSetEquippedWith()) {
             for (FacilitiesProperty property : usageZone.getEquippedWith())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (usageZone.isSetCoolingSchedule())
-            walker.visit((AssociationByRepOrRef<AbstractSchedule>)usageZone.getCoolingSchedule());
+            walker.visit((AssociationByRepOrRef<AbstractSchedule>) usageZone.getCoolingSchedule());
 
         if (usageZone.isSetHeatingSchedule())
-            walker.visit((AssociationByRepOrRef<AbstractSchedule>)usageZone.getHeatingSchedule());
+            walker.visit((AssociationByRepOrRef<AbstractSchedule>) usageZone.getHeatingSchedule());
 
         if (usageZone.isSetVentilationSchedule())
-            walker.visit((AssociationByRepOrRef<AbstractSchedule>)usageZone.getVentilationSchedule());
+            walker.visit((AssociationByRepOrRef<AbstractSchedule>) usageZone.getVentilationSchedule());
     }
 
     public void visit(UsageZoneProperty usageZoneProperty) {
-        walker.visit((FeatureProperty<?>)usageZoneProperty.getValue());
+        walker.visit((FeatureProperty<?>) usageZoneProperty.getValue());
     }
 
     public void visit(WeatherData weatherData) {
-        walker.visit((AbstractGML)weatherData);
+        walker.visit((AbstractGML) weatherData);
 
         if (weatherData.isSetValues())
-            walker.visit((AssociationByRepOrRef<AbstractTimeSeries>)weatherData.getValues());
+            walker.visit((AssociationByRepOrRef<AbstractTimeSeries>) weatherData.getValues());
 
         if (weatherData.isSetPosition())
             walker.visit(weatherData.getPosition());
     }
 
     public void visit(WeatherDataPropertyElement weatherDataPropertyElement) {
-        walker.visit((AssociationByRepOrRef<WeatherData>)weatherDataPropertyElement.getValue());
+        walker.visit((AssociationByRepOrRef<WeatherData>) weatherDataPropertyElement.getValue());
     }
 
     public void visit(WeatherStation weatherStation) {
-        walker.visit((AbstractCityObject)weatherStation);
+        walker.visit((AbstractCityObject) weatherStation);
 
         if (weatherStation.isSetPosition())
             walker.visit(weatherStation.getPosition());

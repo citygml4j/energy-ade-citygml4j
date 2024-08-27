@@ -21,49 +21,11 @@
 
 package org.citygml4j.ade.energy.walker;
 
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundary;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundaryProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpening;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpeningProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZoneProperty;
-import org.citygml4j.ade.energy.model.core.AbstractConstruction;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.DemandsProperty;
-import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
-import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.WeatherData;
-import org.citygml4j.ade.energy.model.core.WeatherDataProperty;
-import org.citygml4j.ade.energy.model.core.WeatherDataPropertyElement;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Layer;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponent;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponentProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.SolidMaterial;
-import org.citygml4j.ade.energy.model.occupantBehaviour.DHWFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.ElectricalAppliances;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Facilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.FacilitiesProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
-import org.citygml4j.ade.energy.model.occupantBehaviour.OccupantsProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractSchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractTimeSeries;
-import org.citygml4j.ade.energy.model.supportingClasses.DailyPatternSchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.DailySchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.DailyScheduleProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYear;
-import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYearProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeries;
-import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeriesFile;
-import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
+import org.citygml4j.ade.energy.model.buildingPhysics.*;
+import org.citygml4j.ade.energy.model.core.*;
+import org.citygml4j.ade.energy.model.materialAndConstruction.*;
+import org.citygml4j.ade.energy.model.occupantBehaviour.*;
+import org.citygml4j.ade.energy.model.supportingClasses.*;
 import org.citygml4j.model.citygml.ade.binding.ADEWalker;
 import org.citygml4j.model.citygml.core.AbstractCityObject;
 import org.citygml4j.model.gml.base.AbstractGML;
@@ -81,19 +43,19 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(AbstractConstruction abstractConstruction) {
-        return walker.apply((AbstractFeature)abstractConstruction);
+        return walker.apply((AbstractFeature) abstractConstruction);
     }
 
     public T apply(AbstractMaterial abstractMaterial) {
-        return walker.apply((AbstractFeature)abstractMaterial);
+        return walker.apply((AbstractFeature) abstractMaterial);
     }
 
     public T apply(AbstractSchedule abstractSchedule) {
-        return walker.apply((AbstractGML)abstractSchedule);
+        return walker.apply((AbstractGML) abstractSchedule);
     }
 
     public T apply(AbstractThermalZone abstractThermalZone) {
-        T object = walker.apply((AbstractCityObject)abstractThermalZone);
+        T object = walker.apply((AbstractCityObject) abstractThermalZone);
         if (object != null)
             return object;
 
@@ -109,15 +71,15 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(AbstractTimeSeries abstractTimeSeries) {
-        return walker.apply((AbstractGML)abstractTimeSeries);
+        return walker.apply((AbstractGML) abstractTimeSeries);
     }
 
     public T apply(AbstractUsageZone abstractUsageZone) {
-        return walker.apply((AbstractCityObject)abstractUsageZone);
+        return walker.apply((AbstractCityObject) abstractUsageZone);
     }
 
     public T apply(Construction construction) {
-        T object = apply((AbstractConstruction)construction);
+        T object = apply((AbstractConstruction) construction);
         if (object != null)
             return object;
 
@@ -133,7 +95,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(DailyPatternSchedule dailyPatternSchedule) {
-        T object = apply((AbstractSchedule)dailyPatternSchedule);
+        T object = apply((AbstractSchedule) dailyPatternSchedule);
         if (object != null)
             return object;
 
@@ -146,7 +108,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
                             if (scheduleProperty.isSetDaySchedule()) {
                                 DailySchedule dailySchedule = scheduleProperty.getDaySchedule();
                                 if (dailySchedule.isSetSchedule()) {
-                                    object = walker.apply((AssociationByRepOrRef<AbstractTimeSeries>)dailySchedule.getSchedule());
+                                    object = walker.apply((AssociationByRepOrRef<AbstractTimeSeries>) dailySchedule.getSchedule());
                                     if (object != null)
                                         return object;
                                 }
@@ -161,19 +123,19 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(DemandsProperty demandsProperty) {
-        return walker.apply((FeatureProperty<?>)demandsProperty.getValue());
+        return walker.apply((FeatureProperty<?>) demandsProperty.getValue());
     }
 
     public T apply(DHWFacilities dhwFacilities) {
-        return apply((Facilities)dhwFacilities);
+        return apply((Facilities) dhwFacilities);
     }
 
     public T apply(ElectricalAppliances electricalAppliances) {
-        return apply((Facilities)electricalAppliances);
+        return apply((Facilities) electricalAppliances);
     }
 
     public T apply(EnergyDemand energyDemand) {
-        T object = walker.apply((AbstractFeature)energyDemand);
+        T object = walker.apply((AbstractFeature) energyDemand);
         if (object != null)
             return object;
 
@@ -187,7 +149,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(Facilities facilities) {
-        T object = walker.apply((AbstractCityObject)facilities);
+        T object = walker.apply((AbstractCityObject) facilities);
         if (object != null)
             return object;
 
@@ -201,11 +163,11 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(Gas gas) {
-        return apply((AbstractMaterial)gas);
+        return apply((AbstractMaterial) gas);
     }
 
     public T apply(Layer layer) {
-        T object = walker.apply((AbstractFeature)layer);
+        T object = walker.apply((AbstractFeature) layer);
         if (object != null)
             return object;
 
@@ -221,7 +183,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(LayerComponent layerComponent) {
-        T object = walker.apply((AbstractFeature)layerComponent);
+        T object = walker.apply((AbstractFeature) layerComponent);
         if (object != null)
             return object;
 
@@ -235,11 +197,11 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(LightingFacilities lightingFacilities) {
-        return apply((Facilities)lightingFacilities);
+        return apply((Facilities) lightingFacilities);
     }
 
     public T apply(Occupants occupants) {
-        T object = walker.apply((AbstractFeature)occupants);
+        T object = walker.apply((AbstractFeature) occupants);
         if (object != null)
             return object;
 
@@ -253,19 +215,19 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(RegularTimeSeries regularTimeSeries) {
-        return apply((AbstractTimeSeries)regularTimeSeries);
+        return apply((AbstractTimeSeries) regularTimeSeries);
     }
 
     public T apply(RegularTimeSeriesFile regularTimeSeriesFile) {
-        return apply((AbstractTimeSeries)regularTimeSeriesFile);
+        return apply((AbstractTimeSeries) regularTimeSeriesFile);
     }
 
     public T apply(SolidMaterial solidMaterial) {
-        return apply((AbstractMaterial)solidMaterial);
+        return apply((AbstractMaterial) solidMaterial);
     }
 
     public T apply(ThermalBoundary thermalBoundary) {
-        T object = walker.apply((AbstractCityObject)thermalBoundary);
+        T object = walker.apply((AbstractCityObject) thermalBoundary);
         if (object != null)
             return object;
 
@@ -301,7 +263,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(ThermalOpening thermalOpening) {
-        T object = walker.apply((AbstractCityObject)thermalOpening);
+        T object = walker.apply((AbstractCityObject) thermalOpening);
         if (object != null)
             return object;
 
@@ -321,7 +283,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(ThermalZone thermalZone) {
-        T object = apply((AbstractThermalZone)thermalZone);
+        T object = apply((AbstractThermalZone) thermalZone);
         if (object != null)
             return object;
 
@@ -343,11 +305,11 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(ThermalZonePropertyElement thermalZonePropertyElement) {
-        return walker.apply((FeatureProperty<?>)thermalZonePropertyElement.getValue());
+        return walker.apply((FeatureProperty<?>) thermalZonePropertyElement.getValue());
     }
 
     public T apply(UsageZone usageZone) {
-        T object = apply((AbstractUsageZone)usageZone);
+        T object = apply((AbstractUsageZone) usageZone);
         if (object != null)
             return object;
 
@@ -389,11 +351,11 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(UsageZoneProperty usageZoneProperty) {
-        return walker.apply((FeatureProperty<?>)usageZoneProperty.getValue());
+        return walker.apply((FeatureProperty<?>) usageZoneProperty.getValue());
     }
 
     public T apply(WeatherData weatherData) {
-        T object = walker.apply((AbstractGML)weatherData);
+        T object = walker.apply((AbstractGML) weatherData);
         if (object != null)
             return object;
 
@@ -413,14 +375,14 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
     }
 
     public T apply(WeatherDataPropertyElement weatherDataPropertyElement) {
-        return walker.apply((AssociationByRepOrRef<WeatherData>)weatherDataPropertyElement.getValue());
+        return walker.apply((AssociationByRepOrRef<WeatherData>) weatherDataPropertyElement.getValue());
     }
 
     public T apply(WeatherStation weatherStation) {
-        T object = walker.apply((AbstractCityObject)weatherStation);
+        T object = walker.apply((AbstractCityObject) weatherStation);
         if (object != null)
             return object;
-        
+
         if (weatherStation.isSetPosition()) {
             object = walker.apply(weatherStation.getPosition());
             if (object != null)
@@ -434,7 +396,7 @@ public class EnergyADEGMLFunctionWalker<T> implements ADEWalker<GMLFunctionWalke
                     return object;
             }
         }
-        
+
         return null;
     }
 }

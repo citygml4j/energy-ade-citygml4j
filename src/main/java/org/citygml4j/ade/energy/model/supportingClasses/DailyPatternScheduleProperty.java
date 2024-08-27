@@ -66,7 +66,7 @@ public class DailyPatternScheduleProperty extends AssociationByRepOrRef<DailyPat
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        DailyPatternScheduleProperty copy = (target == null) ? new DailyPatternScheduleProperty() : (DailyPatternScheduleProperty)target;
+        DailyPatternScheduleProperty copy = (target == null) ? new DailyPatternScheduleProperty() : (DailyPatternScheduleProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

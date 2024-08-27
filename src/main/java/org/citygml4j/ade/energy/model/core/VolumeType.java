@@ -86,13 +86,13 @@ public class VolumeType implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        VolumeType copy = (target == null) ? new VolumeType() : (VolumeType)target;
+        VolumeType copy = (target == null) ? new VolumeType() : (VolumeType) target;
 
         if (isSetType())
             copy.setType(type);
 
         if (isSetValue())
-            copy.setValue((Volume)copyBuilder.copy(value));
+            copy.setValue((Volume) copyBuilder.copy(value));
 
         copy.unsetParent();
         return copy;

@@ -37,7 +37,7 @@ public enum FloorAreaTypeValue {
     }
 
     public static FloorAreaTypeValue fromValue(String v) {
-        for (FloorAreaTypeValue c: FloorAreaTypeValue.values()) {
+        for (FloorAreaTypeValue c : FloorAreaTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

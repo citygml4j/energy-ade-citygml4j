@@ -192,12 +192,12 @@ public class ThermalZone extends AbstractThermalZone {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        ThermalZone copy = (target == null) ? new ThermalZone() : (ThermalZone)target;
+        ThermalZone copy = (target == null) ? new ThermalZone() : (ThermalZone) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetFloorArea()) {
             for (FloorAreaProperty part : floorArea) {
-                FloorAreaProperty copyPart = (FloorAreaProperty)copyBuilder.copy(part);
+                FloorAreaProperty copyPart = (FloorAreaProperty) copyBuilder.copy(part);
                 copy.addFloorArea(copyPart);
 
                 if (part != null && copyPart == part)
@@ -206,7 +206,7 @@ public class ThermalZone extends AbstractThermalZone {
         }
 
         if (isSetInfiltrationRate())
-            copy.setInfiltrationRate((Measure)copyBuilder.copy(infiltrationRate));
+            copy.setInfiltrationRate((Measure) copyBuilder.copy(infiltrationRate));
 
         if (isSetIsCooled())
             copy.setIsCooled(isCooled);
@@ -216,7 +216,7 @@ public class ThermalZone extends AbstractThermalZone {
 
         if (isSetVolume()) {
             for (VolumeTypeProperty part : volume) {
-                VolumeTypeProperty copyPart = (VolumeTypeProperty)copyBuilder.copy(part);
+                VolumeTypeProperty copyPart = (VolumeTypeProperty) copyBuilder.copy(part);
                 copy.addVolume(copyPart);
 
                 if (part != null && copyPart == part)
@@ -225,11 +225,11 @@ public class ThermalZone extends AbstractThermalZone {
         }
 
         if (isSetVolumeGeometry())
-            copy.setVolumeGeometry((SolidProperty)copyBuilder.copy(volumeGeometry));
+            copy.setVolumeGeometry((SolidProperty) copyBuilder.copy(volumeGeometry));
 
         if (isSetThermalBoundary()) {
             for (ThermalBoundaryProperty part : thermalBoundary) {
-                ThermalBoundaryProperty copyPart = (ThermalBoundaryProperty)copyBuilder.copy(part);
+                ThermalBoundaryProperty copyPart = (ThermalBoundaryProperty) copyBuilder.copy(part);
                 copy.addThermalBoundary(copyPart);
 
                 if (part != null && copyPart == part)

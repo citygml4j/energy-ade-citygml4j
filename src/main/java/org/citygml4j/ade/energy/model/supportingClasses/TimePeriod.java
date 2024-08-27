@@ -84,13 +84,13 @@ public class TimePeriod implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        TimePeriod copy = (target == null) ? new TimePeriod() : (TimePeriod)target;
+        TimePeriod copy = (target == null) ? new TimePeriod() : (TimePeriod) target;
 
         if (isSetBeginPosition())
-            copy.setBeginPosition((ZonedDateTime)copyBuilder.copy(beginPosition));
+            copy.setBeginPosition((ZonedDateTime) copyBuilder.copy(beginPosition));
 
         if (isSetEndPosition())
-            copy.setEndPosition((ZonedDateTime)copyBuilder.copy(endPosition));
+            copy.setEndPosition((ZonedDateTime) copyBuilder.copy(endPosition));
 
         copy.unsetParent();
         return copy;

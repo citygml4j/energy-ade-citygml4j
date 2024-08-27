@@ -66,7 +66,7 @@ public class LayerComponentProperty extends FeatureProperty<LayerComponent> impl
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        LayerComponentProperty copy = (target == null) ? new LayerComponentProperty() : (LayerComponentProperty)target;
+        LayerComponentProperty copy = (target == null) ? new LayerComponentProperty() : (LayerComponentProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

@@ -66,7 +66,7 @@ public class OccupantsProperty extends FeatureProperty<Occupants> implements ADE
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        OccupantsProperty copy = (target == null) ? new OccupantsProperty() : (OccupantsProperty)target;
+        OccupantsProperty copy = (target == null) ? new OccupantsProperty() : (OccupantsProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

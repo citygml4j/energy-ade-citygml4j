@@ -66,7 +66,7 @@ public class AbstractUsageZoneProperty extends FeatureProperty<AbstractUsageZone
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        AbstractUsageZoneProperty copy = (target == null) ? new AbstractUsageZoneProperty() : (AbstractUsageZoneProperty)target;
+        AbstractUsageZoneProperty copy = (target == null) ? new AbstractUsageZoneProperty() : (AbstractUsageZoneProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

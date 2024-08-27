@@ -92,18 +92,18 @@ public class Construction extends AbstractConstruction {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        Construction copy = (target == null) ? new Construction() : (Construction)target;
+        Construction copy = (target == null) ? new Construction() : (Construction) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetOpticalProperties())
-            copy.setOpticalProperties((OpticalPropertiesProperty)copyBuilder.copy(opticalProperties));
+            copy.setOpticalProperties((OpticalPropertiesProperty) copyBuilder.copy(opticalProperties));
 
         if (isSetUValue())
-            copy.setUValue((Measure)copyBuilder.copy(uValue));
+            copy.setUValue((Measure) copyBuilder.copy(uValue));
 
         if (isSetLayer()) {
             for (LayerProperty part : layer) {
-                LayerProperty copyPart = (LayerProperty)copyBuilder.copy(part);
+                LayerProperty copyPart = (LayerProperty) copyBuilder.copy(part);
                 copy.addLayer(copyPart);
 
                 if (part != null && copyPart == part)

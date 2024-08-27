@@ -66,7 +66,7 @@ public class AbstractTimeSeriesProperty extends AssociationByRepOrRef<AbstractTi
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        AbstractTimeSeriesProperty copy = (target == null) ? new AbstractTimeSeriesProperty() : (AbstractTimeSeriesProperty)target;
+        AbstractTimeSeriesProperty copy = (target == null) ? new AbstractTimeSeriesProperty() : (AbstractTimeSeriesProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

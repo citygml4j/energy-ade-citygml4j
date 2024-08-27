@@ -86,13 +86,13 @@ public class HeightAboveGround implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        HeightAboveGround copy = (target == null) ? new HeightAboveGround() : (HeightAboveGround)target;
+        HeightAboveGround copy = (target == null) ? new HeightAboveGround() : (HeightAboveGround) target;
 
         if (isSetHeightReference())
             copy.setHeightReference(heightReference);
 
         if (isSetValue())
-            copy.setValue((Length)copyBuilder.copy(value));
+            copy.setValue((Length) copyBuilder.copy(value));
 
         copy.unsetParent();
         return copy;

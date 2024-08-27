@@ -21,36 +21,10 @@
 
 package org.citygml4j.ade.energy.walker;
 
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundary;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundaryProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpening;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpeningProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZoneProperty;
-import org.citygml4j.ade.energy.model.core.AbstractConstruction;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.DemandsProperty;
-import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
-import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Layer;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponent;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponentProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.SolidMaterial;
-import org.citygml4j.ade.energy.model.occupantBehaviour.DHWFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.ElectricalAppliances;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Facilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.FacilitiesProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
-import org.citygml4j.ade.energy.model.occupantBehaviour.OccupantsProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
+import org.citygml4j.ade.energy.model.buildingPhysics.*;
+import org.citygml4j.ade.energy.model.core.*;
+import org.citygml4j.ade.energy.model.materialAndConstruction.*;
+import org.citygml4j.ade.energy.model.occupantBehaviour.*;
 import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
 import org.citygml4j.model.citygml.ade.binding.ADEWalker;
 import org.citygml4j.model.citygml.core.AbstractCityObject;
@@ -67,143 +41,143 @@ public class EnergyADEFeatureWalker implements ADEWalker<FeatureWalker> {
     }
 
     public void visit(AbstractConstruction abstractConstruction) {
-        walker.visit((AbstractFeature)abstractConstruction);
+        walker.visit((AbstractFeature) abstractConstruction);
     }
 
     public void visit(AbstractMaterial abstractMaterial) {
-        walker.visit((AbstractFeature)abstractMaterial);
+        walker.visit((AbstractFeature) abstractMaterial);
     }
 
     public void visit(AbstractThermalZone abstractThermalZone) {
-        walker.visit((AbstractCityObject)abstractThermalZone);
+        walker.visit((AbstractCityObject) abstractThermalZone);
 
         if (abstractThermalZone.isSetContains()) {
             for (AbstractUsageZoneProperty property : abstractThermalZone.getContains())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(AbstractUsageZone abstractUsageZone) {
-        walker.visit((AbstractCityObject)abstractUsageZone);
+        walker.visit((AbstractCityObject) abstractUsageZone);
     }
 
     public void visit(Construction construction) {
-        visit((AbstractConstruction)construction);
+        visit((AbstractConstruction) construction);
 
         if (construction.isSetLayer()) {
             for (LayerProperty property : construction.getLayer())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(DemandsProperty demandsProperty) {
-        walker.visit((FeatureProperty<?>)demandsProperty.getValue());
+        walker.visit((FeatureProperty<?>) demandsProperty.getValue());
     }
 
     public void visit(DHWFacilities dhwFacilities) {
-        visit((Facilities)dhwFacilities);
+        visit((Facilities) dhwFacilities);
     }
 
     public void visit(ElectricalAppliances electricalAppliances) {
-        visit((Facilities)electricalAppliances);
+        visit((Facilities) electricalAppliances);
     }
 
     public void visit(EnergyDemand energyDemand) {
-        walker.visit((AbstractFeature)energyDemand);
+        walker.visit((AbstractFeature) energyDemand);
     }
 
     public void visit(Facilities facilities) {
-        walker.visit((AbstractCityObject)facilities);
+        walker.visit((AbstractCityObject) facilities);
     }
 
     public void visit(Gas gas) {
-        visit((AbstractMaterial)gas);
+        visit((AbstractMaterial) gas);
     }
 
     public void visit(Layer layer) {
-        walker.visit((AbstractFeature)layer);
+        walker.visit((AbstractFeature) layer);
 
         if (layer.isSetLayerComponent()) {
             for (LayerComponentProperty property : layer.getLayerComponent())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(LayerComponent layerComponent) {
-        walker.visit((AbstractFeature)layerComponent);
+        walker.visit((AbstractFeature) layerComponent);
 
         if (layerComponent.isSetMaterial())
-            walker.visit((FeatureProperty<?>)layerComponent.getMaterial());
+            walker.visit((FeatureProperty<?>) layerComponent.getMaterial());
     }
 
     public void visit(LightingFacilities lightingFacilities) {
-        visit((Facilities)lightingFacilities);
+        visit((Facilities) lightingFacilities);
     }
 
     public void visit(Occupants occupants) {
-        walker.visit((AbstractFeature)occupants);
+        walker.visit((AbstractFeature) occupants);
     }
 
     public void visit(SolidMaterial solidMaterial) {
-        visit((AbstractMaterial)solidMaterial);
+        visit((AbstractMaterial) solidMaterial);
     }
 
     public void visit(ThermalBoundary thermalBoundary) {
-        walker.visit((AbstractCityObject)thermalBoundary);
+        walker.visit((AbstractCityObject) thermalBoundary);
 
         if (thermalBoundary.isSetConstruction())
-            walker.visit((FeatureProperty<?>)thermalBoundary.getConstruction());
+            walker.visit((FeatureProperty<?>) thermalBoundary.getConstruction());
 
         if (thermalBoundary.isSetContains()) {
             for (ThermalOpeningProperty property : thermalBoundary.getContains())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (thermalBoundary.isSetDelimits()) {
             for (ThermalZoneProperty property : thermalBoundary.getDelimits())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(ThermalOpening thermalOpening) {
-        walker.visit((AbstractCityObject)thermalOpening);
+        walker.visit((AbstractCityObject) thermalOpening);
 
         if (thermalOpening.isSetConstruction())
-            walker.visit((FeatureProperty<?>)thermalOpening.getConstruction());
+            walker.visit((FeatureProperty<?>) thermalOpening.getConstruction());
     }
 
     public void visit(ThermalZone thermalZone) {
-        visit((AbstractThermalZone)thermalZone);
+        visit((AbstractThermalZone) thermalZone);
 
         if (thermalZone.isSetThermalBoundary()) {
             for (ThermalBoundaryProperty property : thermalZone.getThermalBoundary())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(ThermalZonePropertyElement thermalZonePropertyElement) {
-        walker.visit((FeatureProperty<?>)thermalZonePropertyElement.getValue());
+        walker.visit((FeatureProperty<?>) thermalZonePropertyElement.getValue());
     }
 
     public void visit(UsageZone usageZone) {
-        visit((AbstractUsageZone)usageZone);
+        visit((AbstractUsageZone) usageZone);
 
         if (usageZone.isSetOccupiedBy()) {
             for (OccupantsProperty property : usageZone.getOccupiedBy())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
 
         if (usageZone.isSetEquippedWith()) {
             for (FacilitiesProperty property : usageZone.getEquippedWith())
-                walker.visit((FeatureProperty<?>)property);
+                walker.visit((FeatureProperty<?>) property);
         }
     }
 
     public void visit(UsageZoneProperty usageZoneProperty) {
-        walker.visit((FeatureProperty<?>)usageZoneProperty.getValue());
+        walker.visit((FeatureProperty<?>) usageZoneProperty.getValue());
     }
 
     public void visit(WeatherStation weatherStation) {
-        walker.visit((AbstractCityObject)weatherStation);
+        walker.visit((AbstractCityObject) weatherStation);
     }
 }

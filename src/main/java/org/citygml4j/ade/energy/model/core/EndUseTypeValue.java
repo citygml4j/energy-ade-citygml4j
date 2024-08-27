@@ -43,7 +43,7 @@ public enum EndUseTypeValue {
     }
 
     public static EndUseTypeValue fromValue(String v) {
-        for (EndUseTypeValue c: EndUseTypeValue.values()) {
+        for (EndUseTypeValue c : EndUseTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

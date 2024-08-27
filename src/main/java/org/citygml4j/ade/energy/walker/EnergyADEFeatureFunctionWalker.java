@@ -21,36 +21,10 @@
 
 package org.citygml4j.ade.energy.walker;
 
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundary;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundaryProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpening;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpeningProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZoneProperty;
-import org.citygml4j.ade.energy.model.core.AbstractConstruction;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.DemandsProperty;
-import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
-import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Layer;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponent;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponentProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.SolidMaterial;
-import org.citygml4j.ade.energy.model.occupantBehaviour.DHWFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.ElectricalAppliances;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Facilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.FacilitiesProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
-import org.citygml4j.ade.energy.model.occupantBehaviour.OccupantsProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
+import org.citygml4j.ade.energy.model.buildingPhysics.*;
+import org.citygml4j.ade.energy.model.core.*;
+import org.citygml4j.ade.energy.model.materialAndConstruction.*;
+import org.citygml4j.ade.energy.model.occupantBehaviour.*;
 import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
 import org.citygml4j.model.citygml.ade.binding.ADEWalker;
 import org.citygml4j.model.citygml.core.AbstractCityObject;
@@ -67,15 +41,15 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(AbstractConstruction abstractConstruction) {
-        return walker.apply((AbstractFeature)abstractConstruction);
+        return walker.apply((AbstractFeature) abstractConstruction);
     }
 
     public T visit(AbstractMaterial abstractMaterial) {
-        return walker.apply((AbstractFeature)abstractMaterial);
+        return walker.apply((AbstractFeature) abstractMaterial);
     }
 
     public T visit(AbstractThermalZone abstractThermalZone) {
-        T object = walker.apply((AbstractCityObject)abstractThermalZone);
+        T object = walker.apply((AbstractCityObject) abstractThermalZone);
         if (object != null)
             return object;
 
@@ -91,11 +65,11 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(AbstractUsageZone abstractUsageZone) {
-        return walker.apply((AbstractCityObject)abstractUsageZone);
+        return walker.apply((AbstractCityObject) abstractUsageZone);
     }
 
     public T visit(Construction construction) {
-        T object = visit((AbstractConstruction)construction);
+        T object = visit((AbstractConstruction) construction);
         if (object != null)
             return object;
 
@@ -111,31 +85,31 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(DemandsProperty demandsProperty) {
-        return walker.apply((FeatureProperty<?>)demandsProperty.getValue());
+        return walker.apply((FeatureProperty<?>) demandsProperty.getValue());
     }
 
     public T visit(DHWFacilities dhwFacilities) {
-        return visit((Facilities)dhwFacilities);
+        return visit((Facilities) dhwFacilities);
     }
 
     public T visit(ElectricalAppliances electricalAppliances) {
-        return visit((Facilities)electricalAppliances);
+        return visit((Facilities) electricalAppliances);
     }
 
     public T visit(EnergyDemand energyDemand) {
-        return walker.apply((AbstractFeature)energyDemand);
+        return walker.apply((AbstractFeature) energyDemand);
     }
 
     public T visit(Facilities facilities) {
-        return walker.apply((AbstractCityObject)facilities);
+        return walker.apply((AbstractCityObject) facilities);
     }
 
     public T visit(Gas gas) {
-        return visit((AbstractMaterial)gas);
+        return visit((AbstractMaterial) gas);
     }
 
     public T visit(Layer layer) {
-        T object = walker.apply((AbstractFeature)layer);
+        T object = walker.apply((AbstractFeature) layer);
 
         if (layer.isSetLayerComponent()) {
             for (LayerComponentProperty property : layer.getLayerComponent()) {
@@ -149,7 +123,7 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(LayerComponent layerComponent) {
-        T object = walker.apply((AbstractFeature)layerComponent);
+        T object = walker.apply((AbstractFeature) layerComponent);
         if (object != null)
             return object;
 
@@ -163,19 +137,19 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(LightingFacilities lightingFacilities) {
-        return visit((Facilities)lightingFacilities);
+        return visit((Facilities) lightingFacilities);
     }
 
     public T visit(Occupants occupants) {
-        return walker.apply((AbstractFeature)occupants);
+        return walker.apply((AbstractFeature) occupants);
     }
 
     public T visit(SolidMaterial solidMaterial) {
-        return visit((AbstractMaterial)solidMaterial);
+        return visit((AbstractMaterial) solidMaterial);
     }
 
     public T visit(ThermalBoundary thermalBoundary) {
-        T object = walker.apply((AbstractCityObject)thermalBoundary);
+        T object = walker.apply((AbstractCityObject) thermalBoundary);
         if (object != null)
             return object;
 
@@ -205,7 +179,7 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(ThermalOpening thermalOpening) {
-        T object = walker.apply((AbstractCityObject)thermalOpening);
+        T object = walker.apply((AbstractCityObject) thermalOpening);
         if (object != null)
             return object;
 
@@ -219,7 +193,7 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(ThermalZone thermalZone) {
-        T object = visit((AbstractThermalZone)thermalZone);
+        T object = visit((AbstractThermalZone) thermalZone);
         if (object != null)
             return object;
 
@@ -235,11 +209,11 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(ThermalZonePropertyElement thermalZonePropertyElement) {
-        return walker.apply((FeatureProperty<?>)thermalZonePropertyElement.getValue());
+        return walker.apply((FeatureProperty<?>) thermalZonePropertyElement.getValue());
     }
 
     public T visit(UsageZone usageZone) {
-        T object = visit((AbstractUsageZone)usageZone);
+        T object = visit((AbstractUsageZone) usageZone);
         if (object != null)
             return object;
 
@@ -263,10 +237,10 @@ public class EnergyADEFeatureFunctionWalker<T> implements ADEWalker<FeatureFunct
     }
 
     public T visit(UsageZoneProperty usageZoneProperty) {
-        return walker.apply((FeatureProperty<?>)usageZoneProperty.getValue());
+        return walker.apply((FeatureProperty<?>) usageZoneProperty.getValue());
     }
 
     public T visit(WeatherStation weatherStation) {
-        return walker.apply((AbstractCityObject)weatherStation);
+        return walker.apply((AbstractCityObject) weatherStation);
     }
 }

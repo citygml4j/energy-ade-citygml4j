@@ -42,7 +42,7 @@ public enum ThermalBoundaryTypeValue {
     }
 
     public static ThermalBoundaryTypeValue fromValue(String v) {
-        for (ThermalBoundaryTypeValue c: ThermalBoundaryTypeValue.values()) {
+        for (ThermalBoundaryTypeValue c : ThermalBoundaryTypeValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

@@ -62,12 +62,12 @@ public abstract class AbstractThermalZone extends AbstractCityObject implements 
         if (target == null)
             throw new IllegalArgumentException("Target argument must not be null for abstract copyable classes.");
 
-        AbstractThermalZone copy = (AbstractThermalZone)target;
+        AbstractThermalZone copy = (AbstractThermalZone) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetContains()) {
             for (AbstractUsageZoneProperty part : contains) {
-                AbstractUsageZoneProperty copyPart = (AbstractUsageZoneProperty)copyBuilder.copy(part);
+                AbstractUsageZoneProperty copyPart = (AbstractUsageZoneProperty) copyBuilder.copy(part);
                 copy.addContains(copyPart);
 
                 if (part != null && copyPart == part)

@@ -21,100 +21,25 @@
 
 package org.citygml4j.ade.energy.bind;
 
-import net.opengis.gml.CodeType;
-import net.opengis.gml.PointPropertyType;
-import net.opengis.gml.ReferenceType;
-import net.opengis.gml.TimeIntervalLengthType;
-import net.opengis.gml.TimePeriodPropertyType;
-import net.opengis.gml.TimePeriodType;
-import net.opengis.gml.TimePositionType;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundary;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundaryProperty;
+import net.opengis.gml.*;
 import org.citygml4j.ade.energy.model.buildingPhysics.ThermalBoundaryTypeValue;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpening;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalOpeningProperty;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZone;
-import org.citygml4j.ade.energy.model.buildingPhysics.ThermalZoneProperty;
-import org.citygml4j.ade.energy.model.core.AbstractConstruction;
-import org.citygml4j.ade.energy.model.core.AbstractConstructionProperty;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZone;
-import org.citygml4j.ade.energy.model.core.AbstractThermalZoneProperty;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZone;
-import org.citygml4j.ade.energy.model.core.AbstractUsageZoneProperty;
-import org.citygml4j.ade.energy.model.core.BuildingTypeProperty;
-import org.citygml4j.ade.energy.model.core.ConstructionWeightProperty;
+import org.citygml4j.ade.energy.model.buildingPhysics.*;
 import org.citygml4j.ade.energy.model.core.ConstructionWeightValue;
-import org.citygml4j.ade.energy.model.core.DemandsProperty;
 import org.citygml4j.ade.energy.model.core.ElevationReferenceValue;
 import org.citygml4j.ade.energy.model.core.EndUseTypeValue;
-import org.citygml4j.ade.energy.model.core.EnergyDemand;
-import org.citygml4j.ade.energy.model.core.EnergyDemandProperty;
-import org.citygml4j.ade.energy.model.core.FloorArea;
-import org.citygml4j.ade.energy.model.core.FloorAreaProperty;
-import org.citygml4j.ade.energy.model.core.FloorAreaPropertyElement;
 import org.citygml4j.ade.energy.model.core.FloorAreaTypeValue;
-import org.citygml4j.ade.energy.model.core.HeatExchangeType;
-import org.citygml4j.ade.energy.model.core.HeatExchangeTypeProperty;
-import org.citygml4j.ade.energy.model.core.HeightAboveGround;
-import org.citygml4j.ade.energy.model.core.HeightAboveGroundProperty;
-import org.citygml4j.ade.energy.model.core.HeightAboveGroundPropertyElement;
-import org.citygml4j.ade.energy.model.core.ReferencePointProperty;
-import org.citygml4j.ade.energy.model.core.ThermalZonePropertyElement;
-import org.citygml4j.ade.energy.model.core.Transmittance;
-import org.citygml4j.ade.energy.model.core.TransmittanceProperty;
-import org.citygml4j.ade.energy.model.core.UsageZoneProperty;
 import org.citygml4j.ade.energy.model.core.VolumeType;
-import org.citygml4j.ade.energy.model.core.VolumeTypeProperty;
-import org.citygml4j.ade.energy.model.core.VolumeTypePropertyElement;
 import org.citygml4j.ade.energy.model.core.VolumeTypeValue;
 import org.citygml4j.ade.energy.model.core.WavelengthRangeType;
-import org.citygml4j.ade.energy.model.core.WeatherData;
-import org.citygml4j.ade.energy.model.core.WeatherDataProperty;
-import org.citygml4j.ade.energy.model.core.WeatherDataPropertyElement;
 import org.citygml4j.ade.energy.model.core.WeatherDataTypeValue;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterial;
-import org.citygml4j.ade.energy.model.materialAndConstruction.AbstractMaterialProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Construction;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Gas;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Layer;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponent;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerComponentProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.LayerProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.OpticalProperties;
-import org.citygml4j.ade.energy.model.materialAndConstruction.OpticalPropertiesProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.Reflectance;
-import org.citygml4j.ade.energy.model.materialAndConstruction.ReflectanceProperty;
-import org.citygml4j.ade.energy.model.materialAndConstruction.SolidMaterial;
+import org.citygml4j.ade.energy.model.core.*;
 import org.citygml4j.ade.energy.model.materialAndConstruction.SurfaceSide;
-import org.citygml4j.ade.energy.model.occupantBehaviour.DHWFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.ElectricalAppliances;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Facilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.FacilitiesProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.LightingFacilities;
-import org.citygml4j.ade.energy.model.occupantBehaviour.Occupants;
-import org.citygml4j.ade.energy.model.occupantBehaviour.OccupantsProperty;
-import org.citygml4j.ade.energy.model.occupantBehaviour.UsageZone;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractSchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractScheduleProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractTimeSeries;
-import org.citygml4j.ade.energy.model.supportingClasses.AbstractTimeSeriesProperty;
+import org.citygml4j.ade.energy.model.materialAndConstruction.*;
+import org.citygml4j.ade.energy.model.occupantBehaviour.*;
 import org.citygml4j.ade.energy.model.supportingClasses.AcquisitionMethodValue;
-import org.citygml4j.ade.energy.model.supportingClasses.DailyPatternSchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.DailySchedule;
-import org.citygml4j.ade.energy.model.supportingClasses.DailyScheduleProperty;
 import org.citygml4j.ade.energy.model.supportingClasses.DayTypeValue;
 import org.citygml4j.ade.energy.model.supportingClasses.InterpolationTypeValue;
-import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYear;
-import org.citygml4j.ade.energy.model.supportingClasses.PeriodOfYearProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeries;
-import org.citygml4j.ade.energy.model.supportingClasses.RegularTimeSeriesFile;
-import org.citygml4j.ade.energy.model.supportingClasses.TimeIntervalLength;
-import org.citygml4j.ade.energy.model.supportingClasses.TimePeriod;
-import org.citygml4j.ade.energy.model.supportingClasses.TimePeriodProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.TimeValuesProperties;
-import org.citygml4j.ade.energy.model.supportingClasses.TimeValuesPropertiesProperty;
-import org.citygml4j.ade.energy.model.supportingClasses.WeatherStation;
-import org.citygml4j.ade.energy.model.supportingClasses.WeatherStationProperty;
+import org.citygml4j.ade.energy.model.supportingClasses.*;
 import org.citygml4j.builder.jaxb.unmarshal.citygml.ade.ADEUnmarshallerHelper;
 import org.citygml4j.model.citygml.ade.binding.ADEModelObject;
 import org.citygml4j.model.citygml.ade.binding.ADEUnmarshaller;
@@ -124,68 +49,7 @@ import org.citygml4j.model.gml.xlink.XLinkShow;
 import org.citygml4j.model.gml.xlink.XLinkType;
 import org.citygml4j.util.mapper.CheckedTypeMapper;
 import org.citygml4j.xml.io.reader.MissingADESchemaException;
-import org.sig3d.citygml._2.energy._1.AbstractConstructionPropertyType;
-import org.sig3d.citygml._2.energy._1.AbstractConstructionType;
-import org.sig3d.citygml._2.energy._1.AbstractMaterialPropertyType;
-import org.sig3d.citygml._2.energy._1.AbstractMaterialType;
-import org.sig3d.citygml._2.energy._1.AbstractSchedulePropertyType;
-import org.sig3d.citygml._2.energy._1.AbstractScheduleType;
-import org.sig3d.citygml._2.energy._1.AbstractThermalZonePropertyType;
-import org.sig3d.citygml._2.energy._1.AbstractThermalZoneType;
-import org.sig3d.citygml._2.energy._1.AbstractTimeSeriesPropertyType;
-import org.sig3d.citygml._2.energy._1.AbstractTimeSeriesType;
-import org.sig3d.citygml._2.energy._1.AbstractUsageZonePropertyType;
-import org.sig3d.citygml._2.energy._1.AbstractUsageZoneType;
-import org.sig3d.citygml._2.energy._1.ConstructionType;
-import org.sig3d.citygml._2.energy._1.DHWFacilitiesType;
-import org.sig3d.citygml._2.energy._1.DailyPatternScheduleType;
-import org.sig3d.citygml._2.energy._1.DailySchedulePropertyType;
-import org.sig3d.citygml._2.energy._1.DailyScheduleType;
-import org.sig3d.citygml._2.energy._1.ElectricalAppliancesType;
-import org.sig3d.citygml._2.energy._1.EnergyDemandPropertyType;
-import org.sig3d.citygml._2.energy._1.EnergyDemandType;
-import org.sig3d.citygml._2.energy._1.FacilitiesPropertyType;
-import org.sig3d.citygml._2.energy._1.FacilitiesType;
-import org.sig3d.citygml._2.energy._1.FloorAreaPropertyType;
-import org.sig3d.citygml._2.energy._1.FloorAreaType;
-import org.sig3d.citygml._2.energy._1.GasType;
-import org.sig3d.citygml._2.energy._1.HeatExchangeTypePropertyType;
-import org.sig3d.citygml._2.energy._1.HeatExchangeTypeType;
-import org.sig3d.citygml._2.energy._1.HeightAboveGroundPropertyType;
-import org.sig3d.citygml._2.energy._1.HeightAboveGroundType;
-import org.sig3d.citygml._2.energy._1.LayerComponentPropertyType;
-import org.sig3d.citygml._2.energy._1.LayerComponentType;
-import org.sig3d.citygml._2.energy._1.LayerPropertyType;
-import org.sig3d.citygml._2.energy._1.LayerType;
-import org.sig3d.citygml._2.energy._1.LightingFacilitiesType;
-import org.sig3d.citygml._2.energy._1.OccupantsPropertyType;
-import org.sig3d.citygml._2.energy._1.OccupantsType;
-import org.sig3d.citygml._2.energy._1.OpticalPropertiesPropertyType;
-import org.sig3d.citygml._2.energy._1.OpticalPropertiesType;
-import org.sig3d.citygml._2.energy._1.PeriodOfYearPropertyType;
-import org.sig3d.citygml._2.energy._1.PeriodOfYearType;
-import org.sig3d.citygml._2.energy._1.ReflectancePropertyType;
-import org.sig3d.citygml._2.energy._1.ReflectanceType;
-import org.sig3d.citygml._2.energy._1.RegularTimeSeriesFileType;
-import org.sig3d.citygml._2.energy._1.RegularTimeSeriesType;
-import org.sig3d.citygml._2.energy._1.SolidMaterialType;
-import org.sig3d.citygml._2.energy._1.ThermalBoundaryPropertyType;
-import org.sig3d.citygml._2.energy._1.ThermalBoundaryType;
-import org.sig3d.citygml._2.energy._1.ThermalOpeningPropertyType;
-import org.sig3d.citygml._2.energy._1.ThermalOpeningType;
-import org.sig3d.citygml._2.energy._1.ThermalZonePropertyType;
-import org.sig3d.citygml._2.energy._1.ThermalZoneType;
-import org.sig3d.citygml._2.energy._1.TimeValuesPropertiesPropertyType;
-import org.sig3d.citygml._2.energy._1.TimeValuesPropertiesType;
-import org.sig3d.citygml._2.energy._1.TransmittancePropertyType;
-import org.sig3d.citygml._2.energy._1.TransmittanceType;
-import org.sig3d.citygml._2.energy._1.UsageZoneType;
-import org.sig3d.citygml._2.energy._1.VolumeTypePropertyType;
-import org.sig3d.citygml._2.energy._1.VolumeTypeType;
-import org.sig3d.citygml._2.energy._1.WeatherDataPropertyType;
-import org.sig3d.citygml._2.energy._1.WeatherDataType;
-import org.sig3d.citygml._2.energy._1.WeatherStationPropertyType;
-import org.sig3d.citygml._2.energy._1.WeatherStationType;
+import org.sig3d.citygml._2.energy._1.*;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.datatype.DatatypeConstants;
@@ -281,25 +145,25 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         // generic application properties
         switch (src.getName().getLocalPart()) {
             case "buildingType":
-                return new BuildingTypeProperty(helper.getGMLUnmarshaller().unmarshalCode((CodeType)value));
+                return new BuildingTypeProperty(helper.getGMLUnmarshaller().unmarshalCode((CodeType) value));
             case "constructionWeight":
-                return new ConstructionWeightProperty(ConstructionWeightValue.fromValue(((org.sig3d.citygml._2.energy._1.ConstructionWeightValue)value).value()));
+                return new ConstructionWeightProperty(ConstructionWeightValue.fromValue(((org.sig3d.citygml._2.energy._1.ConstructionWeightValue) value).value()));
             case "demands":
-                return new DemandsProperty(unmarshalEnergyDemandProperty((EnergyDemandPropertyType)value));
+                return new DemandsProperty(unmarshalEnergyDemandProperty((EnergyDemandPropertyType) value));
             case "floorArea":
-                return new FloorAreaPropertyElement(unmarshalFloorAreaProperty((FloorAreaPropertyType)value));
+                return new FloorAreaPropertyElement(unmarshalFloorAreaProperty((FloorAreaPropertyType) value));
             case "heightAboveGround":
-                return new HeightAboveGroundPropertyElement(unmarshalHeightAboveGroundProperty((HeightAboveGroundPropertyType)value));
+                return new HeightAboveGroundPropertyElement(unmarshalHeightAboveGroundProperty((HeightAboveGroundPropertyType) value));
             case "referencePoint":
-                return new ReferencePointProperty(helper.getGMLUnmarshaller().unmarshalPointProperty((PointPropertyType)value));
+                return new ReferencePointProperty(helper.getGMLUnmarshaller().unmarshalPointProperty((PointPropertyType) value));
             case "thermalZone":
-                return new ThermalZonePropertyElement(unmarshalAbstractThermalZoneProperty((AbstractThermalZonePropertyType)value));
+                return new ThermalZonePropertyElement(unmarshalAbstractThermalZoneProperty((AbstractThermalZonePropertyType) value));
             case "usageZone":
-                return new UsageZoneProperty(unmarshalAbstractUsageZoneProperty((AbstractUsageZonePropertyType)value));
+                return new UsageZoneProperty(unmarshalAbstractUsageZoneProperty((AbstractUsageZonePropertyType) value));
             case "volume":
-                return new VolumeTypePropertyElement(unmarshalVolumeTypeProperty((VolumeTypePropertyType)value));
+                return new VolumeTypePropertyElement(unmarshalVolumeTypeProperty((VolumeTypePropertyType) value));
             case "weatherData":
-                return new WeatherDataPropertyElement(unmarshalWeatherDataProperty((WeatherDataPropertyType)value));
+                return new WeatherDataPropertyElement(unmarshalWeatherDataProperty((WeatherDataPropertyType) value));
         }
 
         // all other types
@@ -321,7 +185,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetAbstractConstruction()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getAbstractConstruction());
             if (object instanceof AbstractConstruction)
-                dest.setAbstractConstruction((AbstractConstruction)object);
+                dest.setAbstractConstruction((AbstractConstruction) object);
         }
 
         if (src.isSetRemoteSchema())
@@ -361,7 +225,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetAbstractMaterial()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getAbstractMaterial());
             if (object instanceof AbstractMaterial)
-                dest.setAbstractMaterial((AbstractMaterial)object);
+                dest.setAbstractMaterial((AbstractMaterial) object);
         }
 
         if (src.isSetRemoteSchema())
@@ -401,7 +265,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetAbstractSchedule()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getAbstractSchedule());
             if (object instanceof AbstractSchedule)
-                dest.setAbstractSchedule((AbstractSchedule)object);
+                dest.setAbstractSchedule((AbstractSchedule) object);
         }
 
         if (src.isSetRemoteSchema())
@@ -446,7 +310,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetAbstractThermalZone()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getAbstractThermalZone());
             if (object instanceof AbstractThermalZone)
-                dest.setAbstractThermalZone((AbstractThermalZone)object);
+                dest.setAbstractThermalZone((AbstractThermalZone) object);
         }
 
         if (src.isSetRemoteSchema())
@@ -489,7 +353,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetAbstractTimeSeries()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getAbstractTimeSeries());
             if (object instanceof AbstractTimeSeries)
-                dest.setAbstractTimeSeries((AbstractTimeSeries)object);
+                dest.setAbstractTimeSeries((AbstractTimeSeries) object);
         }
 
         if (src.isSetRemoteSchema())
@@ -529,7 +393,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetAbstractUsageZone()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getAbstractUsageZone());
             if (object instanceof AbstractUsageZone)
-                dest.setAbstractUsageZone((AbstractUsageZone)object);
+                dest.setAbstractUsageZone((AbstractUsageZone) object);
         }
 
         if (src.isSetRemoteSchema())
@@ -704,7 +568,7 @@ public class EnergyADEUnmarshaller implements ADEUnmarshaller {
         if (src.isSetFacilities()) {
             ModelObject object = helper.getJAXBUnmarshaller().unmarshal(src.getFacilities());
             if (object instanceof Facilities)
-                dest.setFacilities((Facilities)object);
+                dest.setFacilities((Facilities) object);
         }
 
         if (src.isSetRemoteSchema())

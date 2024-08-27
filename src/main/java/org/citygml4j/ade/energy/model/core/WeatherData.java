@@ -83,14 +83,14 @@ public class WeatherData extends AbstractGML implements ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        WeatherData copy = (target == null) ? new WeatherData() : (WeatherData)target;
+        WeatherData copy = (target == null) ? new WeatherData() : (WeatherData) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetPosition())
-            copy.setPosition((PointProperty)copyBuilder.copy(position));
+            copy.setPosition((PointProperty) copyBuilder.copy(position));
 
         if (isSetValues())
-            copy.setValues((AbstractTimeSeriesProperty)copyBuilder.copy(values));
+            copy.setValues((AbstractTimeSeriesProperty) copyBuilder.copy(values));
 
         if (isSetWeatherDataType())
             copy.setWeatherDataType(weatherDataType);

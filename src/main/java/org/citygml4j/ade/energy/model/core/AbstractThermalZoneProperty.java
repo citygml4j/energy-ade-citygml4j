@@ -66,7 +66,7 @@ public class AbstractThermalZoneProperty extends FeatureProperty<AbstractThermal
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        AbstractThermalZoneProperty copy = (target == null) ? new AbstractThermalZoneProperty() : (AbstractThermalZoneProperty)target;
+        AbstractThermalZoneProperty copy = (target == null) ? new AbstractThermalZoneProperty() : (AbstractThermalZoneProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

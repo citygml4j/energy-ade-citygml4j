@@ -86,13 +86,13 @@ public class FloorArea implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        FloorArea copy = (target == null) ? new FloorArea() : (FloorArea)target;
+        FloorArea copy = (target == null) ? new FloorArea() : (FloorArea) target;
 
         if (isSetType())
             copy.setType(type);
 
         if (isSetValue())
-            copy.setValue((Area)copyBuilder.copy(value));
+            copy.setValue((Area) copyBuilder.copy(value));
 
         copy.unsetParent();
         return copy;

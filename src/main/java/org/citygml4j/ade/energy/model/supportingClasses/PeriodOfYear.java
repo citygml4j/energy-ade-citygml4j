@@ -98,14 +98,14 @@ public class PeriodOfYear implements Associable, ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        PeriodOfYear copy = (target == null) ? new PeriodOfYear() : (PeriodOfYear)target;
+        PeriodOfYear copy = (target == null) ? new PeriodOfYear() : (PeriodOfYear) target;
 
         if (isSetPeriod())
-            copy.setPeriod((TimePeriodProperty)copyBuilder.copy(period));
+            copy.setPeriod((TimePeriodProperty) copyBuilder.copy(period));
 
         if (isSetDailySchedule()) {
             for (DailyScheduleProperty part : dailySchedule) {
-                DailyScheduleProperty copyPart = (DailyScheduleProperty)copyBuilder.copy(part);
+                DailyScheduleProperty copyPart = (DailyScheduleProperty) copyBuilder.copy(part);
                 copy.addDailySchedule(copyPart);
 
                 if (part != null && copyPart == part)

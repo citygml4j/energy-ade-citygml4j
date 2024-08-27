@@ -62,7 +62,7 @@ public class DailyScheduleProperty extends AssociationByRep<DailySchedule> imple
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        DailyScheduleProperty copy = (target == null) ? new DailyScheduleProperty() : (DailyScheduleProperty)target;
+        DailyScheduleProperty copy = (target == null) ? new DailyScheduleProperty() : (DailyScheduleProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

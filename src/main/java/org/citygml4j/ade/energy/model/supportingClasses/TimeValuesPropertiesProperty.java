@@ -62,7 +62,7 @@ public class TimeValuesPropertiesProperty extends AssociationByRep<TimeValuesPro
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        TimeValuesPropertiesProperty copy = (target == null) ? new TimeValuesPropertiesProperty() : (TimeValuesPropertiesProperty)target;
+        TimeValuesPropertiesProperty copy = (target == null) ? new TimeValuesPropertiesProperty() : (TimeValuesPropertiesProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

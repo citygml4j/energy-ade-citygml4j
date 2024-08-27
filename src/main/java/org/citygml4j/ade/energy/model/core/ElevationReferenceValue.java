@@ -48,7 +48,7 @@ public enum ElevationReferenceValue {
     }
 
     public static ElevationReferenceValue fromValue(String v) {
-        for (ElevationReferenceValue c: ElevationReferenceValue.values()) {
+        for (ElevationReferenceValue c : ElevationReferenceValue.values()) {
             if (c.value.equals(v))
                 return c;
         }

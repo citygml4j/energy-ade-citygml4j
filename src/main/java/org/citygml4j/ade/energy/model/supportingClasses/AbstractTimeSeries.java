@@ -50,11 +50,11 @@ public abstract class AbstractTimeSeries extends AbstractGML implements ADEModel
         if (target == null)
             throw new IllegalArgumentException("Target argument must not be null for abstract copyable classes.");
 
-        AbstractTimeSeries copy = (AbstractTimeSeries)target;
+        AbstractTimeSeries copy = (AbstractTimeSeries) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetVariableProperties())
-            copy.setVariableProperties((TimeValuesPropertiesProperty)copyBuilder.copy(variableProperties));
+            copy.setVariableProperties((TimeValuesPropertiesProperty) copyBuilder.copy(variableProperties));
 
         return copy;
     }

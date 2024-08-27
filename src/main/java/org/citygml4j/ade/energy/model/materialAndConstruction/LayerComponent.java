@@ -91,17 +91,17 @@ public class LayerComponent extends AbstractFeature implements ADEModelObject {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        LayerComponent copy = (target == null) ? new LayerComponent() : (LayerComponent)target;
+        LayerComponent copy = (target == null) ? new LayerComponent() : (LayerComponent) target;
         super.copyTo(copy, copyBuilder);
 
         if (isSetAreaFraction())
-            copy.setAreaFraction((Scale)copyBuilder.copy(areaFraction));
+            copy.setAreaFraction((Scale) copyBuilder.copy(areaFraction));
 
         if (isSetThickness())
-            copy.setThickness((Length)copyBuilder.copy(thickness));
+            copy.setThickness((Length) copyBuilder.copy(thickness));
 
         if (isSetMaterial())
-            copy.setMaterial((AbstractMaterialProperty)copyBuilder.copy(material));
+            copy.setMaterial((AbstractMaterialProperty) copyBuilder.copy(material));
 
         return copy;
     }

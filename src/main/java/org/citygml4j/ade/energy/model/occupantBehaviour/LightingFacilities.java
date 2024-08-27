@@ -32,7 +32,7 @@ public class LightingFacilities extends Facilities {
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        LightingFacilities copy = (target == null) ? new LightingFacilities() : (LightingFacilities)target;
+        LightingFacilities copy = (target == null) ? new LightingFacilities() : (LightingFacilities) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

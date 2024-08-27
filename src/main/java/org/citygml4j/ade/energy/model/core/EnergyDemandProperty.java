@@ -66,7 +66,7 @@ public class EnergyDemandProperty extends FeatureProperty<EnergyDemand> implemen
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        EnergyDemandProperty copy = (target == null) ? new EnergyDemandProperty() : (EnergyDemandProperty)target;
+        EnergyDemandProperty copy = (target == null) ? new EnergyDemandProperty() : (EnergyDemandProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

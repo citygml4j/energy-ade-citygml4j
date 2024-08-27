@@ -62,7 +62,7 @@ public class RegularTimeSeriesProperty extends AssociationByRep<RegularTimeSerie
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        RegularTimeSeriesProperty copy = (target == null) ? new RegularTimeSeriesProperty() : (RegularTimeSeriesProperty)target;
+        RegularTimeSeriesProperty copy = (target == null) ? new RegularTimeSeriesProperty() : (RegularTimeSeriesProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

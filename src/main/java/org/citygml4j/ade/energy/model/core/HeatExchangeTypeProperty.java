@@ -62,7 +62,7 @@ public class HeatExchangeTypeProperty extends AssociationByRep<HeatExchangeType>
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        HeatExchangeTypeProperty copy = (target == null) ? new HeatExchangeTypeProperty() : (HeatExchangeTypeProperty)target;
+        HeatExchangeTypeProperty copy = (target == null) ? new HeatExchangeTypeProperty() : (HeatExchangeTypeProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

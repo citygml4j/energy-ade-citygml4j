@@ -62,7 +62,7 @@ public class OpticalPropertiesProperty extends AssociationByRep<OpticalPropertie
 
     @Override
     public Object copyTo(Object target, CopyBuilder copyBuilder) {
-        OpticalPropertiesProperty copy = (target == null) ? new OpticalPropertiesProperty() : (OpticalPropertiesProperty)target;
+        OpticalPropertiesProperty copy = (target == null) ? new OpticalPropertiesProperty() : (OpticalPropertiesProperty) target;
         return super.copyTo(copy, copyBuilder);
     }
 }

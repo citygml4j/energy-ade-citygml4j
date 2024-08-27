@@ -39,7 +39,7 @@ public enum AcquisitionMethodValue {
     }
 
     public static AcquisitionMethodValue fromValue(String v) {
-        for (AcquisitionMethodValue c: AcquisitionMethodValue.values()) {
+        for (AcquisitionMethodValue c : AcquisitionMethodValue.values()) {
             if (c.value.equals(v))
                 return c;
         }
