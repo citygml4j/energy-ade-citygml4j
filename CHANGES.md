@@ -1,10 +1,15 @@
 Change Log
 ==========
 
+### 1.1.0 - 2024-08-27
+
+##### Changes
+* **Breaking:** Java 11 is now the minimum required version for using energy-ade-citygml4j.
+* Updated citygml4j to 2.13.0.
+
 ### 1.0.4 - 2021-09-25
 
 ##### Changes
-
 * Updated citygml4j to 2.11.4.
 
 ### 1.0.3 - 2021-04-30
